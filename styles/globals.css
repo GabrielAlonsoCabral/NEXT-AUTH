@@ -9,3 +9,10 @@
     -webkit-mask-image: -webkit-radial-gradient(white, black);
   }
 }
+
+@layer base {
+  html,
+  body {
+    @apply dark:bg-black;
+  }
+}

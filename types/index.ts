@@ -7,3 +7,5 @@ export * from "./mdx";
 export * from "./seo";
 export * from "./settings";
 export * from "./twitter";
+export * from "./pages";
+export * from "./components";
