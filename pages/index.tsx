@@ -1,5 +1,8 @@
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
   return (
@@ -20,3 +23,14 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps<any> = async (ctx) =>{  
+  return ({
+    props: {
+      ...(await serverSideTranslations(ctx.locale||ctx.defaultLocale||'pt', [
+        'common',
+      ]))
+    },
+  })
+  } 
+  
