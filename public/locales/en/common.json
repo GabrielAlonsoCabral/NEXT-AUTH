@@ -1,9 +1,10 @@
 {
-    "login":{
-       "seo":{
-            "title":"Login EN",
-            "description":"Descrição EN"
-        },
-        "description":"If you can dream it, you can sell it with Citizens."
-    }
+  "login": {
+    "seo": {
+      "title": "Login EN",
+      "description": "Descrição EN"
+    },
+    "description": "If you can dream it, you can sell it with Citizens."
+  },
+  "commons": {}
 }
