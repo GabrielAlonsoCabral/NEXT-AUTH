@@ -28,9 +28,9 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   pages: {
-    signIn: `/login`,
-    verifyRequest: `/login`,
-    error: '/login', // Error code passed in query string as ?error=
+    signIn: `/app/login`,
+    verifyRequest: `/app/login`,
+    error: '/app/login', // Error code passed in query string as ?error=
   },
   adapter: PrismaAdapter(prisma),
   callbacks: {
