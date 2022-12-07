@@ -7,7 +7,6 @@ import prisma from '@/lib/prisma'
 if (!process.env.GITHUB_ID || !process.env.GITHUB_SECRET)
   throw new Error('Failed to initialize Github authentication')
 
-console.log(process.env.TWITTER_CLIENT_ID, process.env.TWITTER_CLIENT_SECRET)
 export const authOptions: NextAuthOptions = {
   providers: [
     GitHubProvider({
