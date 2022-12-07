@@ -102,6 +102,13 @@ function Login({ APP_NAME }: LoginProps) {
             disabled={provider === 'google' && loading}
             onClick={() => OnClickSignIn('google')}
           />
+
+          <ButtonSignIn
+            provider={'github'}
+            icon={<GithubIcon title={'Github'} />}
+            disabled={provider === 'github' && loading}
+            onClick={() => OnClickSignIn('github')}
+          />
         </div>
 
         <button onClick={() => onToggleLanguageClick(changeTo)}>Mudar</button>

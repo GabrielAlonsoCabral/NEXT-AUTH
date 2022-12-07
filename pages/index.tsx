@@ -2,8 +2,6 @@ import { GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Head from 'next/head'
 import Image from 'next/image'
-import { useTranslation } from 'react-i18next'
-import prisma from '../lib/prisma'
 
 export default function Home() {
   return (
