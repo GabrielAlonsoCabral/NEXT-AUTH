@@ -1,8 +1,9 @@
-import { GetStaticProps } from "next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Head from "next/head";
-import Image from "next/image";
-import { useTranslation } from "react-i18next";
+import { GetStaticProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import Head from 'next/head'
+import Image from 'next/image'
+import { useTranslation } from 'react-i18next'
+import prisma from '../lib/prisma'
 
 export default function Home() {
   return (
@@ -21,16 +22,16 @@ export default function Home() {
         />
       </div>
     </div>
-  );
+  )
 }
 
-export const getStaticProps: GetStaticProps<any> = async (ctx) =>{  
-  return ({
+export const getStaticProps: GetStaticProps<any> = async (ctx) => {
+  return {
     props: {
-      ...(await serverSideTranslations(ctx.locale||ctx.defaultLocale||'pt', [
-        'common',
-      ]))
+      ...(await serverSideTranslations(
+        ctx.locale || ctx.defaultLocale || 'pt',
+        ['common']
+      )),
     },
-  })
-  } 
-  
+  }
+}
