@@ -34,7 +34,7 @@ function Login({ APP_NAME }: LoginProps) {
 
   const OnClickSignIn = (provider: providers) => {
     setLoading(true)
-    //signIn(String(provider))
+    signIn(String(provider))
     setProvider(provider)
   }
 
@@ -84,7 +84,6 @@ function Login({ APP_NAME }: LoginProps) {
 
           <ButtonSignIn
             provider={'apple'}
-            isLoading={provider === 'apple' && loading}
             icon={<AppleIcon title={'Apple'} />}
             disabled={provider === 'apple' && loading}
             onClick={() => OnClickSignIn('apple')}
@@ -92,7 +91,6 @@ function Login({ APP_NAME }: LoginProps) {
 
           <ButtonSignIn
             provider={'facebook'}
-            isLoading={provider === 'facebook' && loading}
             icon={<FacebookIcon title={'Facebook'} />}
             disabled={provider === 'facebook' && loading}
             onClick={() => OnClickSignIn('facebook')}
@@ -100,7 +98,6 @@ function Login({ APP_NAME }: LoginProps) {
 
           <ButtonSignIn
             provider={'google'}
-            isLoading={provider === 'google' && loading}
             icon={<GoogleIcon title={'Google'} />}
             disabled={provider === 'google' && loading}
             onClick={() => OnClickSignIn('google')}
