@@ -32,6 +32,7 @@ export const authOptions: NextAuthOptions = {
     verifyRequest: `/app/login`,
     error: '/app/login', // Error code passed in query string as ?error=
   },
+  secret: process.env.NEXTAUTH_SECRET,
   adapter: PrismaAdapter(prisma),
   callbacks: {
     session: ({ session, user }) => ({
