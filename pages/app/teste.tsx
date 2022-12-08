@@ -14,9 +14,6 @@ import { providers } from '@/types/helpers'
 import AppleIcon from '@/components/icons/apple'
 import FacebookIcon from '@/components/icons/facebook'
 import GoogleIcon from '@/components/icons/google'
-import Link from 'next/link'
-import LoadingDots from '@/components/app/loading-dots'
-import { CircularProgress } from '@chakra-ui/react'
 
 function Login({ APP_NAME }: LoginProps) {
   const [loading, setLoading] = useState(false)
@@ -37,7 +34,7 @@ function Login({ APP_NAME }: LoginProps) {
 
   const OnClickSignIn = (provider: providers) => {
     setLoading(true)
-    //signIn(String(provider))
+    signIn(String(provider))
     setProvider(provider)
   }
 
@@ -47,113 +44,77 @@ function Login({ APP_NAME }: LoginProps) {
   }, [error])
 
   return (
-    <div className="flex h-screen w-screen items-center justify-center bg-gray-50">
-      <div className="z-10 w-full max-w-md shadow-2xl bg-white py-10 rounded-[34px]">
-        <div className="flex flex-col items-center justify-center space-y-3  bg-white px-4 py-6 pt-8 text-center sm:px-16 rounded-[34px]">
-          <a href="https://dub.sh">
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              className="h-10 w-10 rounded-full"
-              width={20}
-              height={20}
-            />
-          </a>
-          <h3 className="text-xl font-semibold">Sign In</h3>
-          <p className="text-sm text-gray-500">
-            Use your email and password to sign in
-          </p>
-        </div>
+    <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 px-2 lg:px-8">
+      <Head
+        title={t('login.seo.title')}
+        description={t('login.seo.description')}
+        logo={'favicon.ico'}
+      />
 
-        <form className="flex flex-col space-y-4 bg-white px-4 py-8 sm:px-16 border-t">
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-xs text-gray-600 uppercase"
-            >
-              Email Address
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="panic@thedis.co"
-              autoComplete="email"
-              required
-              className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-xs text-gray-600 uppercase"
-            >
-              Password
-            </label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              required
-              className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
-            />
-          </div>
-          <button
-            disabled={loading}
-            className={`${
-              loading
-                ? 'cursor-not-allowed border-gray-200 bg-gray-100'
-                : 'border-black bg-black text-white hover:bg-white hover:text-black'
-            } flex h-10 w-full items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
-          >
-            {loading ? <LoadingDots color="#808080" /> : <p>Sign In</p>}
-          </button>
-          <p className="text-center text-sm text-gray-600">
-            Don&apos;t have an account?{' '}
-            <Link href="/register" className="font-semibold text-gray-800">
-              Sign up
-            </Link>{' '}
-            for free.
-          </p>
-        </form>
+      <div className="lg:mx-auto md:mx-auto border-2 shadow-2xl p-10 rounded-[34px]">
+        <div className="sm:mx-auto sm:w-full sm:max-w-md">
+          <Image
+            alt="Citizens"
+            width={100}
+            height={100}
+            className="relative mx-auto h-12 w-auto"
+            src="/logo.png"
+          />
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            {APP_NAME}
+          </h2>
+        </div>
 
         <div>
-          <div className="relative bg-white">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t"></div>
-            </div>
-            <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-white px-2 text-gray-500">
-                Or continue with
-              </span>
-            </div>
-          </div>
-
-          <div className="flex  bg-white px-4 justify-center mt-5">
-            {!loading ? (
-              <>
-                <div>
-                  <ButtonSignIn
-                    provider={'apple'}
-                    icon={<AppleIcon title={'Sign in with Apple'} />}
-                    disabled={provider === 'apple' && loading}
-                    onClick={() => OnClickSignIn('apple')}
-                  />
-                </div>
-                <div>
-                  <ButtonSignIn
-                    provider={'google'}
-                    icon={<GoogleIcon title={'Sign in with Google'} />}
-                    disabled={provider === 'google' && loading}
-                    onClick={() => OnClickSignIn('google')}
-                  />
-                </div>
-              </>
-            ) : (
-              <CircularProgress isIndeterminate color={'black'} />
-            )}
-          </div>
+          <h3 className="mt-5 text-center font-semibold text-xl">
+            Inicie sessão com ID Citizens
+          </h3>
         </div>
+
+        <div></div>
+
+        <div className="mx-auto mt-5 flex flex-row justify-center">
+          {/* <ButtonSignIn
+            provider={'github'}
+            isLoading={provider === 'github' && loading}
+            icon={<GithubIcon title={'Github'} />}
+            disabled={provider !== 'github' && loading}
+            onClick={() => OnClickSignIn('github')}
+          /> */}
+
+          <ButtonSignIn
+            provider={'apple'}
+            icon={<AppleIcon title={'Apple'} />}
+            disabled={provider === 'apple' && loading}
+            onClick={() => OnClickSignIn('apple')}
+          />
+
+          <ButtonSignIn
+            provider={'facebook'}
+            icon={<FacebookIcon title={'Facebook'} />}
+            disabled={provider === 'facebook' && loading}
+            onClick={() => OnClickSignIn('facebook')}
+          />
+
+          <ButtonSignIn
+            provider={'google'}
+            icon={<GoogleIcon title={'Google'} />}
+            disabled={provider === 'google' && loading}
+            onClick={() => OnClickSignIn('google')}
+          />
+
+          <ButtonSignIn
+            provider={'github'}
+            icon={<GithubIcon title={'Github'} />}
+            disabled={provider === 'github' && loading}
+            onClick={() => OnClickSignIn('github')}
+          />
+        </div>
+
+        <button onClick={() => onToggleLanguageClick(changeTo)}>Mudar</button>
+
+        <div className="mt-8 mx-auto sm:w-full w-11/12 sm:max-w-md"></div>
+        <Toaster />
       </div>
     </div>
   )
