@@ -49,7 +49,7 @@ function Login({ APP_NAME }: LoginProps) {
   }, [error])
 
   return (
-    <div className="flex h-screen w-screen items-center justify-center bg-gray-50">
+    <div className="flex h-screen w-screen items-center justify-center bg-gray-50 px-5">
       <div className="z-10 w-full max-w-md shadow-2xl bg-white py-10 rounded-[34px]">
         <div className="flex flex-col items-center justify-center space-y-3  bg-white px-4 py-6 pt-8 text-center sm:px-16 rounded-[34px]">
           <a href="https://dub.sh">
@@ -67,7 +67,7 @@ function Login({ APP_NAME }: LoginProps) {
           </p>
         </div>
 
-        <form className="flex flex-col space-y-4 bg-white px-4 py-8 sm:px-16 border-t">
+        <form className="flex flex-col space-y-4 bg-white px-14 py-8 sm:px-16 border-t">
           <div>
             <label
               htmlFor="email"
