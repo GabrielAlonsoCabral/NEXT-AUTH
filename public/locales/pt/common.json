@@ -1,5 +1,9 @@
 {
-  "commons": {},
+  "commons": {
+    "GoogleSignIn": "Acessar com Google",
+    "TwitterSignIn": "Acessar com Twitter",
+    "GithubSignIn": "Acessar com Github"
+  },
   "login": {
     "seo": {
       "title": "Login PT",

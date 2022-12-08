@@ -133,28 +133,26 @@ function Login({ APP_NAME }: LoginProps) {
 
           {!loading ? (
             <>
-              <div className="flex  bg-white px-4 justify-center mt-5">
-                <div>
-                  <ButtonSignIn
-                    provider={'google'}
-                    icon={<GoogleIcon title={'Sign in with Google'} />}
-                    disabled={provider === 'google' && loading}
-                    onClick={() => OnClickSignIn('google')}
-                  />
-                </div>
+              <div className="flex  bg-white px-11 justify-center mt-5">
+                <ButtonSignIn
+                  provider={'google'}
+                  icon={<GoogleIcon title={t('commons.GoogleSignIn')} />}
+                  disabled={provider === 'google' && loading}
+                  onClick={() => OnClickSignIn('google')}
+                />
               </div>
-              <div className="flex flex-row bg-white px-4 justify-center">
+              <div className="flex bg-white px-11 justify-center">
                 <ButtonSignIn
                   provider={'twitter'}
-                  icon={<TwitterIcon title={'Sign in with Twitter'} />}
+                  icon={<TwitterIcon title={t('commons.TwitterSignIn')} />}
                   disabled={provider === 'twitter' && loading}
                   onClick={() => OnClickSignIn('twitter')}
                 />
               </div>
-              <div className="flex bg-white px-4 justify-center">
+              <div className="flex bg-white px-11 justify-center">
                 <ButtonSignIn
                   provider={'github'}
-                  icon={<GithubIcon title={'Sign in with Github'} />}
+                  icon={<GithubIcon title={t('commons.GithubSignIn')} />}
                   disabled={provider === 'github' && loading}
                   onClick={() => OnClickSignIn('github')}
                 />
