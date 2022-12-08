@@ -1,4 +1,4 @@
-@import url("/fonts/stylesheet.css");
+@import url('/fonts/stylesheet.css');
 
 @tailwind base;
 @tailwind components;
@@ -13,6 +13,6 @@
 @layer base {
   html,
   body {
-    @apply dark:bg-black;
+    @apply bg-gray-50 dark:bg-black;
   }
 }

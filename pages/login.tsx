@@ -50,7 +50,7 @@ function Login({ APP_NAME }: LoginProps) {
 
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-gray-50 px-5">
-      <div className="z-10 w-full max-w-md shadow-2xl bg-white py-10 rounded-[34px]">
+      <div className="z-10 w-full max-w-md shadow-xl bg-white py-10 rounded-[34px]">
         <div className="flex flex-col items-center justify-center space-y-3  bg-white px-4 py-6 pt-8 text-center sm:px-16 rounded-[34px]">
           <a href="https://dub.sh">
             <Image
