@@ -23,6 +23,7 @@ function ButtonSignIn({
       apple: styles.apple,
       facebook: styles.facebook,
       google: styles.google,
+      twitter: styles.twitter,
     }
 
     setStyle(providersStyles[provider])

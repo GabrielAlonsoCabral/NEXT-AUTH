@@ -17,6 +17,7 @@ import GoogleIcon from '@/components/icons/google'
 import Link from 'next/link'
 import LoadingDots from '@/components/app/loading-dots'
 import { CircularProgress } from '@chakra-ui/react'
+import TwitterIcon from '@/components/icons/twitter'
 
 function Login({ APP_NAME }: LoginProps) {
   const [loading, setLoading] = useState(false)
@@ -37,7 +38,7 @@ function Login({ APP_NAME }: LoginProps) {
 
   const OnClickSignIn = (provider: providers) => {
     setLoading(true)
-    signIn(String(provider))
+    // signIn(String(provider))
     setProvider(provider)
     setLoading(false)
   }
@@ -130,30 +131,40 @@ function Login({ APP_NAME }: LoginProps) {
             </div>
           </div>
 
-          <div className="flex  bg-white px-4 justify-center mt-5">
-            {!loading ? (
-              <>
-                <div className="w-full">
+          {!loading ? (
+            <>
+              <div className="flex  bg-white px-4 justify-center mt-5">
+                <div>
                   <ButtonSignIn
-                    provider={'apple'}
-                    icon={<AppleIcon title={'Sign in with Apple'} />}
-                    disabled={provider === 'apple' && loading}
-                    onClick={() => OnClickSignIn('apple')}
+                    provider={'google'}
+                    icon={<GoogleIcon title={'Sign in with Google'} />}
+                    disabled={provider === 'google' && loading}
+                    onClick={() => OnClickSignIn('google')}
                   />
                 </div>
-                <div className="w-full">
-                  <ButtonSignIn
-                    provider={'github'}
-                    icon={<GithubIcon title={'Sign in with Github'} />}
-                    disabled={provider === 'github' && loading}
-                    onClick={() => OnClickSignIn('github')}
-                  />
-                </div>
-              </>
-            ) : (
+              </div>
+              <div className="flex flex-row bg-white px-4 justify-center">
+                <ButtonSignIn
+                  provider={'twitter'}
+                  icon={<TwitterIcon title={'Sign in with Twitter'} />}
+                  disabled={provider === 'twitter' && loading}
+                  onClick={() => OnClickSignIn('twitter')}
+                />
+              </div>
+              <div className="flex bg-white px-4 justify-center">
+                <ButtonSignIn
+                  provider={'github'}
+                  icon={<GithubIcon title={'Sign in with Github'} />}
+                  disabled={provider === 'github' && loading}
+                  onClick={() => OnClickSignIn('github')}
+                />
+              </div>
+            </>
+          ) : (
+            <div className="flex justify-center mt-5">
               <CircularProgress isIndeterminate color={'black'} />
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

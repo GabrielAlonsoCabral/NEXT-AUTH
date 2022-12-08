@@ -1,23 +1,28 @@
-import type { BaseIconProps } from "@/types";
+import { BasicPropsTitle } from '@/types/helpers'
+import React from 'react'
+import styles from './icons.module.css'
 
-interface TwitterIconProps extends BaseIconProps {}
-
-const TwitterIcon = ({ className, color, height, width }: TwitterIconProps) => {
+function TwitterIcon({ title }: BasicPropsTitle) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={width}
-      height={height}
-      className={className}
-      fill="currentColor"
-      version="1.1"
-      viewBox="0 0 512 512"
-      xmlSpace="preserve"
-    >
-      <title>Twitter Icon</title>
-      <path d="M512 99.65a211.65 211.65 0 01-60.3 16.3 104.146 104.146 0 0046.17-57.2 213.54 213.54 0 01-66.73 25.1c-20-20.95-47.73-32.75-76.67-32.65-58.02 0-105.05 46.35-105.05 103.43 0 8.1.93 16 2.72 23.55-84.15-4-162.7-43.2-216.47-108.05A101.344 101.344 0 0021.5 122.1c0 35.9 18.53 67.57 46.68 86.1-16.65-.55-32.93-5-47.55-13v1.3c0 50.13 36.22 91.92 84.22 101.45-9.03 2.38-18.32 3.6-27.65 3.6-6.8 0-13.37-.65-19.8-1.92 14.07 42.4 53.45 71.25 98.1 71.88a212.948 212.948 0 01-130.43 44.2c-8.5 0-16.85-.5-25.08-1.42 48.17 30.48 104.03 46.63 161 46.52 193.23 0 298.85-157.6 298.85-294.3l-.38-13.38A207.882 207.882 0 00512 99.65z"></path>
-    </svg>
-  );
-};
+    <>
+      <svg
+        className={styles.svg}
+        aria-hidden="true"
+        focusable="false"
+        data-prefix="fab"
+        data-icon="twitter"
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+      >
+        <path
+          fill="currentColor"
+          d="M459.4 151.7c.325 4.548 .325 9.097 .325 13.65 0 138.7-105.6 298.6-298.6 298.6-59.45 0-114.7-17.22-161.1-47.11 8.447 .974 16.57 1.299 25.34 1.299 49.06 0 94.21-16.57 130.3-44.83-46.13-.975-84.79-31.19-98.11-72.77 6.498 .974 12.99 1.624 19.82 1.624 9.421 0 18.84-1.3 27.61-3.573-48.08-9.747-84.14-51.98-84.14-102.1v-1.299c13.97 7.797 30.21 12.67 47.43 13.32-28.26-18.84-46.78-51.01-46.78-87.39 0-19.49 5.197-37.36 14.29-52.95 51.65 63.67 129.3 105.3 216.4 109.8-1.624-7.797-2.599-15.92-2.599-24.04 0-57.83 46.78-104.9 104.9-104.9 30.21 0 57.5 12.67 76.67 33.14 23.72-4.548 46.46-13.32 66.6-25.34-7.798 24.37-24.37 44.83-46.13 57.83 21.12-2.273 41.58-8.122 60.43-16.24-14.29 20.79-32.16 39.31-52.63 54.25z"
+        ></path>
+      </svg>
+      {title}
+    </>
+  )
+}
 
-export default TwitterIcon;
+export default TwitterIcon
