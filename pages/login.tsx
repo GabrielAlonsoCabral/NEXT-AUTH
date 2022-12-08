@@ -5,25 +5,25 @@ import { useRouter } from 'next/router'
 import toast, { Toaster } from 'react-hot-toast'
 import { GetStaticProps } from 'next'
 import { LoginProps } from '@/types'
-import Head from '@/components/Head'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import ButtonSignIn from '@/components/Buttons/ButtonSignIn'
 import GithubIcon from '@/components/icons/github'
 import { providers } from '@/types/helpers'
-import AppleIcon from '@/components/icons/apple'
-import FacebookIcon from '@/components/icons/facebook'
 import GoogleIcon from '@/components/icons/google'
 import Link from 'next/link'
 import LoadingDots from '@/components/app/loading-dots'
 import { CircularProgress } from '@chakra-ui/react'
 import TwitterIcon from '@/components/icons/twitter'
+import { useTheme } from 'next-themes'
+import styles from './login.module.css'
 
 function Login({ APP_NAME }: LoginProps) {
   const [loading, setLoading] = useState(false)
   const [provider, setProvider] = useState<providers>()
 
   const router = useRouter()
+  const { theme, setTheme } = useTheme()
 
   const { t } = useTranslation('common')
 
@@ -38,7 +38,7 @@ function Login({ APP_NAME }: LoginProps) {
 
   const OnClickSignIn = (provider: providers) => {
     setLoading(true)
-    // signIn(String(provider))
+    signIn(String(provider))
     setProvider(provider)
     setLoading(false)
   }
@@ -49,29 +49,37 @@ function Login({ APP_NAME }: LoginProps) {
   }, [error])
 
   return (
-    <div className="flex h-screen w-screen items-center justify-center bg-gray-50 px-5">
-      <div className="z-10 w-full max-w-md shadow-xl bg-white py-10 rounded-[34px]">
-        <div className="flex flex-col items-center justify-center space-y-3  bg-white px-4 py-6 pt-8 text-center sm:px-16 rounded-[34px]">
-          <a href="https://dub.sh">
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              className="h-10 w-10 rounded-full"
-              width={20}
-              height={20}
-            />
-          </a>
-          <h3 className="text-xl font-semibold">Sign In</h3>
-          <p className="text-sm text-gray-500">
+    <div className="flex h-screen w-screen items-center justify-center bg-gray-50 px-5 dark:bg-black/60 ">
+      <button
+        onClick={() =>
+          theme === 'dark' ? setTheme('light') : setTheme('dark')
+        }
+        className="text-black dark:text-white"
+      >
+        a
+      </button>
+      <div className="w-full max-w-md shadow-2xl dark:shadow-white dark:shadow-sm bg-white py-5 rounded-[34px] dark:bg-black/60 border  dark:border-white ">
+        <div className="flex flex-col items-center justify-center space-y-3 px-4 py-6 pt-8 text-center sm:px-16 rounded-[34px]">
+          <Image
+            src="/logo.png"
+            alt="Logo"
+            className="h-10 w-10 rounded-full dark:bg-gray-50"
+            width={20}
+            height={20}
+          />
+          <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-50">
+            Sign In
+          </h3>
+          <p className="text-sm text-gray-500 dark:text-gray-200">
             Use your email and password to sign in
           </p>
         </div>
 
-        <form className="flex flex-col space-y-4 bg-white px-14 py-8 sm:px-16 border-t">
+        <form className="flex flex-col space-y-4  px-14 py-8 sm:px-16 dark:border-gray-50 border-t-[1px]">
           <div>
             <label
               htmlFor="email"
-              className="block text-xs text-gray-600 uppercase"
+              className="block text-xs text-gray-700 uppercase dark:text-gray-50"
             >
               Email Address
             </label>
@@ -82,13 +90,13 @@ function Login({ APP_NAME }: LoginProps) {
               placeholder="panic@thedis.co"
               autoComplete="email"
               required
-              className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
+              className="mt-1 dark:bg-gray-50 block w-full appearance-none rounded-md border border-gray-300 dark:border-gray-50 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-700 shadow-sm focus:border-black dark:focus:border-white focus:outline-none focus:ring-black dark:focus:ring-white sm:text-sm"
             />
           </div>
           <div>
             <label
               htmlFor="password"
-              className="block text-xs text-gray-600 uppercase"
+              className="block text-xs text-gray-700 uppercase dark:text-gray-50"
             >
               Password
             </label>
@@ -96,8 +104,9 @@ function Login({ APP_NAME }: LoginProps) {
               id="password"
               name="password"
               type="password"
+              placeholder="********"
               required
-              className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
+              className="mt-1 dark:bg-gray-50 block w-full appearance-none rounded-md border border-gray-300 dark:border-gray-50 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-700 shadow-sm focus:border-black dark:focus:border-white focus:outline-none focus:ring-black dark:focus:ring-white sm:text-sm"
             />
           </div>
           <button
@@ -106,13 +115,16 @@ function Login({ APP_NAME }: LoginProps) {
               loading
                 ? 'cursor-not-allowed border-gray-200 bg-gray-100'
                 : 'border-black bg-black text-white hover:bg-white hover:text-black'
-            } flex h-10 w-full items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
+            } flex h-10 w-full items-center justify-center rounded-md border text-sm transition-all focus:outline-none dark:bg-[#fbbc05] dark:text-white dark:border-black dark:hover:text-black dark:hover:bg-white`}
           >
             {loading ? <LoadingDots color="#808080" /> : <p>Sign In</p>}
           </button>
-          <p className="text-center text-sm text-gray-600">
+          <p className="text-center text-sm text-gray-600 dark:text-gray-400">
             Don&apos;t have an account?{' '}
-            <Link href="/register" className="font-semibold text-gray-800">
+            <Link
+              href="/register"
+              className="font-semibold text-gray-800 dark:text-white dark:hover:text-gray-300"
+            >
               Sign up
             </Link>{' '}
             for free.
@@ -120,12 +132,12 @@ function Login({ APP_NAME }: LoginProps) {
         </form>
 
         <div>
-          <div className="relative bg-white">
+          <div className="relative ">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t"></div>
+              <div className="w-full border-t dark:border-white"></div>
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-white px-2 text-gray-500">
+              <span className="px-2 text-gray-500 dark:text-white bg-white dark:bg-black">
                 Or continue with
               </span>
             </div>
@@ -133,29 +145,31 @@ function Login({ APP_NAME }: LoginProps) {
 
           {!loading ? (
             <>
-              <div className="flex  bg-white px-11 justify-center mt-5">
-                <ButtonSignIn
-                  provider={'google'}
-                  icon={<GoogleIcon title={t('commons.GoogleSignIn')} />}
-                  disabled={provider === 'google' && loading}
-                  onClick={() => OnClickSignIn('google')}
-                />
-              </div>
-              <div className="flex bg-white px-11 justify-center">
-                <ButtonSignIn
-                  provider={'twitter'}
-                  icon={<TwitterIcon title={t('commons.TwitterSignIn')} />}
-                  disabled={provider === 'twitter' && loading}
-                  onClick={() => OnClickSignIn('twitter')}
-                />
-              </div>
-              <div className="flex bg-white px-11 justify-center">
-                <ButtonSignIn
-                  provider={'github'}
-                  icon={<GithubIcon title={t('commons.GithubSignIn')} />}
-                  disabled={provider === 'github' && loading}
-                  onClick={() => OnClickSignIn('github')}
-                />
+              <div className="flex flex-wrap px-14 justify-center mt-5 ">
+                <div className="w-full">
+                  <ButtonSignIn
+                    provider={'google'}
+                    icon={<GoogleIcon title={t('commons.GoogleSignIn')} />}
+                    disabled={provider === 'google' && loading}
+                    onClick={() => OnClickSignIn('google')}
+                  />
+                </div>
+                <div className="w-full">
+                  <ButtonSignIn
+                    provider={'twitter'}
+                    icon={<TwitterIcon title={t('commons.TwitterSignIn')} />}
+                    disabled={provider === 'twitter' && loading}
+                    onClick={() => OnClickSignIn('twitter')}
+                  />
+                </div>
+                <div className="w-full">
+                  <ButtonSignIn
+                    provider={'github'}
+                    icon={<GithubIcon title={t('commons.GithubSignIn')} />}
+                    disabled={provider === 'github' && loading}
+                    onClick={() => OnClickSignIn('github')}
+                  />
+                </div>
               </div>
             </>
           ) : (

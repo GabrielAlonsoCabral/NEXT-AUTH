@@ -1,11 +1,11 @@
 .github {
-  @apply m-2 text-white bg-[#24292F] h-10 hover:bg-white hover:border-black border hover:text-black focus:outline-none font-medium rounded-md text-sm text-center flex items-center w-full transition-all  justify-center;
+  @apply mt-4 text-white bg-[#24292F] h-10 hover:bg-white hover:border-black dark:border-none hover:text-black focus:outline-none font-medium rounded-md text-sm text-center flex items-center w-full transition-all  justify-center;
 }
 
 .google {
-  @apply m-2 text-white bg-[#fbbc05] h-10 hover:bg-white hover:border-black border hover:text-black focus:outline-none font-medium rounded-md text-sm text-center flex items-center w-full transition-all justify-center;
+  @apply text-white bg-[#fbbc05] h-10 hover:bg-white hover:border-black border dark:border-none hover:text-black focus:outline-none font-medium rounded-md text-sm text-center flex items-center w-full transition-all justify-center;
 }
 
 .twitter {
-  @apply m-2 text-white bg-[#1da1f2] h-10 hover:bg-white hover:border-black border hover:text-black focus:outline-none  font-medium rounded-md text-sm text-center flex items-center w-full transition-all justify-center;
+  @apply mt-4 text-white bg-[#1da1f2] h-10 hover:bg-white hover:border-black border dark:border-none hover:text-black focus:outline-none  font-medium rounded-md text-sm text-center flex items-center w-full transition-all justify-center;
 }
