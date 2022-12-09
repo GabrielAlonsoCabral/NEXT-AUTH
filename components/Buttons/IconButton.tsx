@@ -1,24 +1,31 @@
 import { providers } from '@/types/helpers'
-import React, { useEffect, useState } from 'react'
+import React, {
+  ButtonHTMLAttributes,
+  HtmlHTMLAttributes,
+  useEffect,
+  useState,
+} from 'react'
 import styles from './buttons.module.css'
 
-type ButtonSignInProps = {
+type IconButtonProps = {
   iconLeft?: JSX.Element
   iconRight?: JSX.Element
   disabled: boolean
-  onClick: () => void
+  onClick?: () => void
   basicStyle: providers | 'default'
   title: string | JSX.Element
+  type: 'submit' | 'reset' | 'button'
 }
 
-function ButtonSignIn({
+function IconButton({
   iconLeft,
   iconRight,
   onClick,
   disabled,
   basicStyle,
   title,
-}: ButtonSignInProps) {
+  type,
+}: IconButtonProps) {
   const [style, setStyle] = useState<string>()
 
   useEffect(() => {
@@ -36,12 +43,7 @@ function ButtonSignIn({
     setStyle(hasStyle ? basicStyles[basicStyle] : basicStyles['default'])
   }, [])
   return (
-    <button
-      type="button"
-      className={style}
-      disabled={disabled}
-      onClick={onClick}
-    >
+    <button type={type} className={style} disabled={disabled} onClick={onClick}>
       {iconLeft && iconLeft}
       {title}
       {iconRight && iconRight}
@@ -49,4 +51,4 @@ function ButtonSignIn({
   )
 }
 
-export default ButtonSignIn
+export default IconButton

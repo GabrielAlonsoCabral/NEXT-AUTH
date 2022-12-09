@@ -28,6 +28,7 @@
     "clsx": "^1.1.1",
     "cuid": "^2.1.8",
     "date-fns": "^2.28.0",
+    "formik": "^2.2.9",
     "framer-motion": "^7.6.19",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",

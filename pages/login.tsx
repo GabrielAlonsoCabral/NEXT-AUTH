@@ -2,25 +2,24 @@ import { signIn } from 'next-auth/react'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import toast, { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 import { GetStaticProps } from 'next'
 import { LoginProps } from '@/types'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import IconButton from '@/components/Buttons/IconButton'
-import GithubIcon from '@/components/icons/github'
 import { providers } from '@/types/helpers'
-import GoogleIcon from '@/components/icons/google'
 import Link from 'next/link'
 import LoadingDots from '@/components/app/loading-dots'
 import { CircularProgress } from '@chakra-ui/react'
-import TwitterIcon from '@/components/icons/twitter'
 import { useTheme } from 'next-themes'
 import ArrowCircleRight from '@/components/icons/arrowCircleRight'
+import ProvidersSignIn from '@/components/ProvidersSignIn'
+import DividerWithTitle from '@/components/DividerWithTitle'
+import FormSignIn from '@/components/Forms/Login/FormSignIn'
 
 function Login({ APP_NAME }: LoginProps) {
   const [loading, setLoading] = useState(false)
-  const [provider, setProvider] = useState<providers>()
 
   const router = useRouter()
   const { theme, setTheme } = useTheme()
@@ -36,10 +35,9 @@ function Login({ APP_NAME }: LoginProps) {
 
   const changeTo = router.locale === 'en' ? 'pt' : 'en'
 
-  const OnClickSignIn = (provider: providers) => {
+  const onProviderSignIn = (provider: providers) => {
     setLoading(true)
     signIn(String(provider))
-    setProvider(provider)
     setLoading(false)
   }
 
@@ -75,105 +73,14 @@ function Login({ APP_NAME }: LoginProps) {
           </p>
         </div>
 
-        <form className="flex flex-col space-y-4  px-14 py-8 sm:px-16 dark:border-gray-50 border-t-[1px]">
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-xs text-gray-700 uppercase dark:text-gray-50"
-            >
-              {t('commons.email')}
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="panic@thedis.co"
-              autoComplete="email"
-              required
-              className="mt-1 dark:bg-gray-50 block w-full appearance-none rounded-md border border-gray-300 dark:border-gray-50 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-700 shadow-sm focus:border-black dark:focus:border-white focus:outline-none focus:ring-black dark:focus:ring-white sm:text-sm"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-xs text-gray-700 uppercase dark:text-gray-50"
-            >
-              {t('commons.password')}
-            </label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              placeholder="********"
-              required
-              className="mt-1 dark:bg-gray-50 block w-full appearance-none rounded-md border border-gray-300 dark:border-gray-50 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-700 shadow-sm focus:border-black dark:focus:border-white focus:outline-none focus:ring-black dark:focus:ring-white sm:text-sm"
-            />
-          </div>
-          <IconButton
-            title={!loading ? 'Sign In' : <LoadingDots color="#808080" />}
-            basicStyle="default"
-            disabled={loading}
-            iconRight={!loading ? <ArrowCircleRight /> : undefined}
-            onClick={() => {
-              setLoading(true)
-            }}
-          />
-          <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-            {t('commons.accountSignUp')}
-            <Link
-              href="/register"
-              className="font-semibold text-gray-800 dark:text-white dark:hover:text-gray-300"
-            >
-              {' '}
-              {t('commons.signUp')}
-            </Link>{' '}
-            {t('commons.here')}.
-          </p>
-        </form>
+        <FormSignIn />
 
         <div className="py-5">
-          <div className="relative ">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t dark:border-white"></div>
-            </div>
-            <div className="relative flex justify-center text-xs uppercase">
-              <span className="px-2 text-gray-500 dark:text-white bg-white dark:bg-black">
-                {t('commons.continueWith')}
-              </span>
-            </div>
-          </div>
+          <DividerWithTitle title={t('commons.continueWith')} />
 
           {!loading ? (
             <>
-              <div className="flex flex-wrap px-14 justify-center mt-5">
-                <div className="w-full">
-                  <IconButton
-                    basicStyle={'google'}
-                    iconLeft={<GoogleIcon />}
-                    title={t('commons.GoogleSignIn')}
-                    disabled={provider === 'google' && loading}
-                    onClick={() => OnClickSignIn('google')}
-                  />
-                </div>
-                <div className="w-full">
-                  <IconButton
-                    basicStyle={'twitter'}
-                    iconLeft={<TwitterIcon />}
-                    title={t('commons.TwitterSignIn')}
-                    disabled={provider === 'twitter' && loading}
-                    onClick={() => OnClickSignIn('twitter')}
-                  />
-                </div>
-                <div className="w-full">
-                  <IconButton
-                    basicStyle={'github'}
-                    iconLeft={<GithubIcon />}
-                    title={t('commons.GithubSignIn')}
-                    disabled={provider === 'github' && loading}
-                    onClick={() => OnClickSignIn('github')}
-                  />
-                </div>
-              </div>
+              <ProvidersSignIn loading={loading} onSignIn={onProviderSignIn} />
             </>
           ) : (
             <div className="flex justify-center mt-5">
