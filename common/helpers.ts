@@ -5,7 +5,7 @@ export const isValidEmail = (email: string) => {
 
 export const isValidPassword = (password: string) => {
   const strongRegex = new RegExp(
-    '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})'
+    '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#.$%^&*])(?=.{8,})'
   )
   return strongRegex.test(password)
 }
