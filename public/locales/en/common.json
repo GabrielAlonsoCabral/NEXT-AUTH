@@ -2,13 +2,20 @@
   "commons": {
     "GoogleSignIn": "Sign in with Google",
     "TwitterSignIn": "Sign in with Twitter",
-    "GithubSignIn": "Sign in with Github"
+    "GithubSignIn": "Sign in with Github",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "accountSignUp": "Don't have an account?",
+    "email": "Email",
+    "password": "Password",
+    "continueWith": "Or continue with",
+    "here": "here"
   },
   "login": {
     "seo": {
       "title": "Login EN",
       "description": "Descrição EN"
     },
-    "description": "If you can dream it, you can sell it with Citizens."
+    "description": "Start section to manage your site."
   }
 }

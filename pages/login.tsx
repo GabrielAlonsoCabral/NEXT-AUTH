@@ -68,10 +68,10 @@ function Login({ APP_NAME }: LoginProps) {
             height={20}
           />
           <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-50">
-            Sign In
+            {APP_NAME}
           </h3>
           <p className="text-sm text-gray-500 dark:text-gray-200">
-            Use your email and password to sign in
+            {t('login.description')}
           </p>
         </div>
 
@@ -81,7 +81,7 @@ function Login({ APP_NAME }: LoginProps) {
               htmlFor="email"
               className="block text-xs text-gray-700 uppercase dark:text-gray-50"
             >
-              Email Address
+              {t('commons.email')}
             </label>
             <input
               id="email"
@@ -98,7 +98,7 @@ function Login({ APP_NAME }: LoginProps) {
               htmlFor="password"
               className="block text-xs text-gray-700 uppercase dark:text-gray-50"
             >
-              Password
+              {t('commons.password')}
             </label>
             <input
               id="password"
@@ -119,14 +119,15 @@ function Login({ APP_NAME }: LoginProps) {
             }}
           />
           <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-            Don&apos;t have an account?{' '}
+            {t('commons.accountSignUp')}
             <Link
               href="/register"
               className="font-semibold text-gray-800 dark:text-white dark:hover:text-gray-300"
             >
-              Sign up
+              {' '}
+              {t('commons.signUp')}
             </Link>{' '}
-            for free.
+            {t('commons.here')}.
           </p>
         </form>
 
@@ -137,7 +138,7 @@ function Login({ APP_NAME }: LoginProps) {
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="px-2 text-gray-500 dark:text-white bg-white dark:bg-black">
-                Or continue with
+                {t('commons.continueWith')}
               </span>
             </div>
           </div>

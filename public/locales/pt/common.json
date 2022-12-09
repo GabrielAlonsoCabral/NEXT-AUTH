@@ -2,13 +2,20 @@
   "commons": {
     "GoogleSignIn": "Acessar com Google",
     "TwitterSignIn": "Acessar com Twitter",
-    "GithubSignIn": "Acessar com Github"
+    "GithubSignIn": "Acessar com Github",
+    "signIn": "Acessar com",
+    "signUp": "Registre-se",
+    "accountSignUp": "Ainda não possui uma conta?",
+    "email": "Email",
+    "password": "Senha",
+    "continueWith": "Ou continue com",
+    "here": "aqui"
   },
   "login": {
     "seo": {
       "title": "Login PT",
       "description": "Descrição PT-BR"
     },
-    "description": "Se você pode sonhar, você pode vender com Citizens."
+    "description": "Inicie sessão para gerenciar seu site."
   }
 }
