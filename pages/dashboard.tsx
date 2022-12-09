@@ -1,62 +1,59 @@
-import { useState, useEffect, useRef } from "react";
-import Layout from "@/components/app/Layout";
-import BlurImage from "@/components/BlurImage";
-import Modal from "@/components/Modal";
-import LoadingDots from "@/components/app/loading-dots";
-import Link from "next/link";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
-import useSWR from "swr";
-import { useDebounce } from "use-debounce";
-import { fetcher } from "@/lib/fetcher";
-import { HttpMethod } from "@/types";
+import { useState, useEffect, useRef } from 'react'
+import Layout from '@/components/app/Layout'
+import BlurImage from '@/components/BlurImage'
+import Modal from '@/components/Modal'
+import LoadingDots from '@/components/app/loading-dots'
+import Link from 'next/link'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
+import useSWR from 'swr'
+import { useDebounce } from 'use-debounce'
+import { fetcher } from '@/lib/fetcher'
+import { HttpMethod } from '@/types'
 
-import type { FormEvent } from "react";
-import type { Site } from "@prisma/client";
+import type { FormEvent } from 'react'
+import type { Site } from '@prisma/client'
 
 export default function AppIndex() {
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const [creatingSite, setCreatingSite] = useState<boolean>(false);
-  const [subdomain, setSubdomain] = useState<string>("");
-  const [debouncedSubdomain] = useDebounce(subdomain, 1500);
-  const [error, setError] = useState<string | null>(null);
+  const [showModal, setShowModal] = useState<boolean>(false)
+  const [creatingSite, setCreatingSite] = useState<boolean>(false)
+  const [subdomain, setSubdomain] = useState<string>('')
+  const [debouncedSubdomain] = useDebounce(subdomain, 1500)
+  const [error, setError] = useState<string | null>(null)
 
-  const siteNameRef = useRef<HTMLInputElement | null>(null);
-  const siteSubdomainRef = useRef<HTMLInputElement | null>(null);
-  const siteDescriptionRef = useRef<HTMLTextAreaElement | null>(null);
+  const siteNameRef = useRef<HTMLInputElement | null>(null)
+  const siteSubdomainRef = useRef<HTMLInputElement | null>(null)
+  const siteDescriptionRef = useRef<HTMLTextAreaElement | null>(null)
 
   useEffect(() => {
     async function checkSubDomain() {
       if (debouncedSubdomain.length > 0) {
         const response = await fetch(
           `/api/domain/check?domain=${debouncedSubdomain}&subdomain=1`
-        );
-        const available = await response.json();
+        )
+        const available = await response.json()
         if (available) {
-          setError(null);
+          setError(null)
         } else {
-          setError(`${debouncedSubdomain}.vercel.pub`);
+          setError(`${debouncedSubdomain}.vercel.pub`)
         }
       }
     }
-    checkSubDomain();
-  }, [debouncedSubdomain]);
+    checkSubDomain()
+  }, [debouncedSubdomain])
 
-  const router = useRouter();
+  const router = useRouter()
 
-  const { data: session } = useSession();
-  const sessionId = session?.user?.id;
+  const { data: session } = useSession()
+  const sessionId = session?.user?.id
 
-  const { data: sites } = useSWR<Array<Site>>(
-    sessionId && `/api/site`,
-    fetcher
-  );
+  const { data: sites } = useSWR<Array<Site>>(sessionId && `/api/site`, fetcher)
 
   async function createSite(e: FormEvent<HTMLFormElement>) {
-    const res = await fetch("/api/site", {
+    const res = await fetch('/api/site', {
       method: HttpMethod.POST,
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         userId: sessionId,
@@ -64,10 +61,10 @@ export default function AppIndex() {
         subdomain: siteSubdomainRef.current?.value,
         description: siteDescriptionRef.current?.value,
       }),
-    });
+    })
     if (res.ok) {
-      const data = await res.json();
-      router.push(`/site/${data.siteId}`);
+      const data = await res.json()
+      router.push(`/site/${data.siteId}`)
     }
   }
 
@@ -76,9 +73,9 @@ export default function AppIndex() {
       <Modal showModal={showModal} setShowModal={setShowModal}>
         <form
           onSubmit={(event) => {
-            event.preventDefault();
-            setCreatingSite(true);
-            createSite(event);
+            event.preventDefault()
+            setCreatingSite(true)
+            createSite(event)
           }}
           className="inline-block w-full max-w-md pt-8 overflow-hidden text-center align-middle transition-all bg-white shadow-xl rounded-lg"
         >
@@ -130,10 +127,10 @@ export default function AppIndex() {
           <div className="flex justify-between items-center mt-10 w-full">
             <button
               type="button"
-              className="w-full px-5 py-5 text-sm text-gray-600 hover:text-black border-t border-gray-300 rounded-bl focus:outline-none focus:ring-0 transition-all ease-in-out duration-150"
+              className="w-full px-5 py-5 text-sm text-gray-600 hover:text-black border-t border-grayBorderColor rounded-bl focus:outline-none focus:ring-0 transition-all ease-in-out duration-150"
               onClick={() => {
-                setError(null);
-                setShowModal(false);
+                setError(null)
+                setShowModal(false)
               }}
             >
               CANCEL
@@ -144,11 +141,11 @@ export default function AppIndex() {
               disabled={creatingSite || error !== null}
               className={`${
                 creatingSite || error
-                  ? "cursor-not-allowed text-gray-400 bg-gray-50"
-                  : "bg-white text-gray-600 hover:text-black"
-              } w-full px-5 py-5 text-sm border-t border-l border-gray-300 rounded-br focus:outline-none focus:ring-0 transition-all ease-in-out duration-150`}
+                  ? 'cursor-not-allowed text-gray-400 bg-gray-50'
+                  : 'bg-white text-gray-600 hover:text-black'
+              } w-full px-5 py-5 text-sm border-t border-l border-grayBorderColor rounded-br focus:outline-none focus:ring-0 transition-all ease-in-out duration-150`}
             >
-              {creatingSite ? <LoadingDots /> : "CREATE SITE"}
+              {creatingSite ? <LoadingDots /> : 'CREATE SITE'}
             </button>
           </div>
         </form>
@@ -177,7 +174,7 @@ export default function AppIndex() {
                           width={500}
                           height={400}
                           className="h-full object-cover"
-                          alt={site.name ?? "Site thumbnail"}
+                          alt={site.name ?? 'Site thumbnail'}
                         />
                       ) : (
                         <div className="absolute flex items-center justify-center w-full h-full bg-gray-100 text-gray-500 text-4xl select-none">
@@ -240,5 +237,5 @@ export default function AppIndex() {
         </div>
       </div>
     </Layout>
-  );
+  )
 }

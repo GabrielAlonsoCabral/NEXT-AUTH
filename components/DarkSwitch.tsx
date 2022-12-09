@@ -8,7 +8,7 @@ const ThemeChanger = () => {
   // When mounted on client, now we can show the UI
   useEffect(() => {
     setMounted(true)
-    if (!theme) setTheme('dark')
+    if (!theme) setTheme('light')
   }, [])
 
   if (!mounted) return null
@@ -17,7 +17,7 @@ const ThemeChanger = () => {
     <div className="flex items-center">
       {theme === 'dark' ? (
         <button
-          onClick={() => setTheme('light')}          
+          onClick={() => setTheme('light')}
           className="text-gray-300 rounded-full outline-none focus:outline-none"
         >
           <span className="sr-only">Light Mode</span>
@@ -31,7 +31,7 @@ const ThemeChanger = () => {
           </svg>
         </button>
       ) : (
-        <button        
+        <button
           onClick={() => setTheme('dark')}
           className="text-gray-500 rounded-full"
         >

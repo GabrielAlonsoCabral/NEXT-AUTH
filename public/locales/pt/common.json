@@ -3,13 +3,12 @@
     "GoogleSignIn": "Acessar com Google",
     "TwitterSignIn": "Acessar com Twitter",
     "GithubSignIn": "Acessar com Github",
-    "signIn": "Acessar com",
-    "signUp": "Registre-se",
+    "signIn": "Acessar",
+    "signUp": "Cadastre-se",
     "accountSignUp": "Ainda não possui uma conta?",
     "email": "Email",
     "password": "Senha",
-    "continueWith": "Ou continue com",
-    "here": "aqui"
+    "continueWith": "Ou continue com"
   },
   "forms": {
     "requireds": {

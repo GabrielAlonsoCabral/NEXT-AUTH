@@ -9,6 +9,7 @@ import Link from 'next/link'
 import FormInput from '../FormInput'
 import { isValidEmail, isValidPassword } from 'common/helpers'
 import FieldErrorLabel from '../FieldErrorLabel'
+import LinkButton from '@/components/Buttons/LinkButton'
 
 const FormSignIn = () => {
   const { t } = useTranslation('common')
@@ -51,7 +52,7 @@ const FormSignIn = () => {
         }) => (
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col space-y-4  px-14 pt-4 pb-2 sm:px-16 dark:border-gray-50 border-t-[1px]"
+            className="flex flex-col space-y-4  px-14 pt-4 pb-2 sm:px-16 dark:border-gray-500 border-t-[1px]"
           >
             <FormLabel title={t('commons.email')} />
             <FormInput
@@ -87,7 +88,11 @@ const FormSignIn = () => {
             <IconButton
               type="submit"
               title={
-                !isSubmitting ? 'Sign In' : <LoadingDots color="#808080" />
+                !isSubmitting ? (
+                  t('commons.signIn')
+                ) : (
+                  <LoadingDots color="#808080" />
+                )
               }
               basicStyle="default"
               disabled={isSubmitting}
@@ -95,15 +100,8 @@ const FormSignIn = () => {
               iconRight={!isSubmitting ? <ArrowCircleRight /> : undefined}
             />
             <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-              {t('commons.accountSignUp')}
-              <Link
-                href="/register"
-                className="font-semibold text-gray-800 dark:text-white dark:hover:text-gray-300"
-              >
-                {' '}
-                {t('commons.signUp')}
-              </Link>{' '}
-              {t('commons.here')}.
+              {t('commons.accountSignUp')}{' '}
+              <LinkButton href="/register" title={t('commons.signUp')} />.
             </p>
           </form>
         )}

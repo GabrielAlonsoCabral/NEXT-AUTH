@@ -17,7 +17,8 @@ module.exports = {
         current: "currentColor",
         'blue-twitter':'#1da1f2',
         'yellow-google':'#fbbc05',
-        'black-github':"#24292F"
+        'black-github':"#24292F",
+        'grayBorderColor':'#cbd5e1'
       },
       width: {
         1536: "1536px",

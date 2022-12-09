@@ -8,8 +8,7 @@
     "accountSignUp": "Don't have an account?",
     "email": "Email",
     "password": "Password",
-    "continueWith": "Or continue with",
-    "here": "here"
+    "continueWith": "Or continue with"
   },
   "forms": {
     "requireds": {

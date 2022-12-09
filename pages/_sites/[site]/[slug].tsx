@@ -136,7 +136,7 @@ export default function Post({
             className="absolute inset-0 flex items-center"
             aria-hidden="true"
           >
-            <div className="w-full border-t border-gray-300" />
+            <div className="w-full border-t border-grayBorderColor" />
           </div>
           <div className="relative flex justify-center">
             <span className="px-2 bg-white text-sm text-gray-500">
