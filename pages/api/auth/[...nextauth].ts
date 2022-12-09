@@ -40,7 +40,6 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.TWITTER_CLIENT_SECRET || '',
       version: '2.0',
       profile(profile) {
-        console.log(profile)
         return {
           id: profile.data.id,
           name: profile.data.name,
@@ -59,9 +58,6 @@ export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   callbacks: {
     session: ({ session, user }) => {
-      // console.log(session)
-      // console.log('@@@@@@@@@@@@@@@')
-      // console.log(user)
       return {
         ...session,
         user: {
