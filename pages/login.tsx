@@ -145,7 +145,7 @@ function Login({ APP_NAME }: LoginProps) {
 
           {!loading ? (
             <>
-              <div className="flex flex-wrap px-14 justify-center mt-5 mb-5">
+              <div className="flex flex-wrap px-14 justify-center mt-5 pb-5">
                 <div className="w-full">
                   <IconButton
                     basicStyle={'google'}
