@@ -131,7 +131,7 @@ function Login({ APP_NAME }: LoginProps) {
           </p>
         </form>
 
-        <div>
+        <div className="py-5">
           <div className="relative ">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t dark:border-white"></div>
@@ -145,7 +145,7 @@ function Login({ APP_NAME }: LoginProps) {
 
           {!loading ? (
             <>
-              <div className="flex flex-wrap px-14 justify-center mt-5 pb-5">
+              <div className="flex flex-wrap px-14 justify-center mt-5">
                 <div className="w-full">
                   <IconButton
                     basicStyle={'google'}
