@@ -1,5 +1,5 @@
 import { WithClassName } from '@/types'
-import { ILinkButtonProps } from '@/types/components/LinkButton'
+import { ILinkButtonProps } from '@/types'
 import Link from 'next/link'
 import React from 'react'
 

@@ -18,7 +18,10 @@ module.exports = {
         'blue-twitter':'#1da1f2',
         'yellow-google':'#fbbc05',
         'black-github':"#24292F",
-        'grayBorderColor':'#cbd5e1'
+        'grayBorderColor':'#cbd5e1',
+        'grayText':'#4b5563',
+        'grayHoverText':'#9ca3af',
+        'focusGrayText':'#374151'
       },
       width: {
         1536: "1536px",

@@ -1,4 +1,4 @@
-import { BasicPropsTitle } from '@/types/helpers'
+import { BasicPropsTitle } from '@/types'
 import React from 'react'
 
 function DividerWithTitle({ title }: BasicPropsTitle) {

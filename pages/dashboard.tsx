@@ -127,7 +127,7 @@ export default function AppIndex() {
           <div className="flex justify-between items-center mt-10 w-full">
             <button
               type="button"
-              className="w-full px-5 py-5 text-sm text-gray-600 hover:text-black border-t border-grayBorderColor rounded-bl focus:outline-none focus:ring-0 transition-all ease-in-out duration-150"
+              className="w-full px-5 py-5 text-sm text-grayText hover:text-black border-t border-grayBorderColor rounded-bl focus:outline-none focus:ring-0 transition-all ease-in-out duration-150"
               onClick={() => {
                 setError(null)
                 setShowModal(false)
@@ -142,7 +142,7 @@ export default function AppIndex() {
               className={`${
                 creatingSite || error
                   ? 'cursor-not-allowed text-gray-400 bg-gray-50'
-                  : 'bg-white text-gray-600 hover:text-black'
+                  : 'bg-white text-grayText hover:text-black'
               } w-full px-5 py-5 text-sm border-t border-l border-grayBorderColor rounded-br focus:outline-none focus:ring-0 transition-all ease-in-out duration-150`}
             >
               {creatingSite ? <LoadingDots /> : 'CREATE SITE'}
@@ -188,7 +188,7 @@ export default function AppIndex() {
                         {site.description}
                       </p>
                       <a
-                        className="font-cal px-3 py-1 tracking-wide rounded bg-gray-200 text-gray-600 absolute bottom-5 left-10 whitespace-nowrap"
+                        className="font-cal px-3 py-1 tracking-wide rounded bg-gray-200 text-grayText absolute bottom-5 left-10 whitespace-nowrap"
                         href={`https://${site.subdomain}.vercel.pub`}
                         onClick={(e) => e.stopPropagation()}
                         rel="noreferrer"
@@ -212,7 +212,7 @@ export default function AppIndex() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <p className="text-2xl font-cal text-gray-600">
+                  <p className="text-2xl font-cal text-grayText">
                     No sites yet. Click &quot;New Site&quot; to create one.
                   </p>
                 </div>

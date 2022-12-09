@@ -7,14 +7,13 @@ import { GetStaticProps } from 'next'
 import { LoginProps } from '@/types'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { providers } from '@/types/helpers'
+import { providers } from '@/types'
 import { CircularProgress } from '@chakra-ui/react'
 import { useTheme } from 'next-themes'
 import ProvidersSignIn from '@/components/ProvidersSignIn'
 import DividerWithTitle from '@/components/DividerWithTitle'
 import FormSignIn from '@/components/Forms/Login/FormSignIn'
-import Layout from '@/components/app/Layout'
-import Navbar from '@/components/Navbar'
+import NavbarSite from '@/components/Navbars/NavbarSite'
 
 function Login({ APP_NAME }: LoginProps) {
   const [loading, setLoading] = useState(false)
@@ -46,7 +45,7 @@ function Login({ APP_NAME }: LoginProps) {
 
   return (
     <>
-      <Navbar />
+      <NavbarSite />
       <div className="flex h-screen w-screen items-center justify-center bg-gray-50 px-5 dark:bg-black/60 mt-0">
         <div className="w-full max-w-md shadow-2xl dark:shadow-none bg-white py-5 rounded-[34px] dark:bg-black/60 border  dark:border-gray-500 ">
           <div className="flex flex-col items-center justify-center space-y-3 px-4 py-6 pt-8 text-center sm:px-16 rounded-[34px]">
@@ -57,10 +56,10 @@ function Login({ APP_NAME }: LoginProps) {
               width={20}
               height={20}
             />
-            <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-50">
+            <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-200">
               {APP_NAME}
             </h3>
-            <p className="text-sm text-gray-500 dark:text-gray-200">
+            <p className="text-sm text-grayText dark:text-gray-300">
               {t('login.description')}
             </p>
           </div>

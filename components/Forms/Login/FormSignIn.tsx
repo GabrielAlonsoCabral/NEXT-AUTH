@@ -5,9 +5,8 @@ import FormLabel from '../FormLabel'
 import IconButton from '@/components/Buttons/IconButton'
 import LoadingDots from '@/components/app/loading-dots'
 import ArrowCircleRight from '@/components/icons/arrowCircleRight'
-import Link from 'next/link'
 import FormInput from '../FormInput'
-import { isValidEmail, isValidPassword } from 'common/helpers'
+import { isValidEmail, isValidPassword } from 'common'
 import FieldErrorLabel from '../FieldErrorLabel'
 import LinkButton from '@/components/Buttons/LinkButton'
 
@@ -99,7 +98,7 @@ const FormSignIn = () => {
               onClick={() => setSubmitting(true)}
               iconRight={!isSubmitting ? <ArrowCircleRight /> : undefined}
             />
-            <p className="text-center text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-center text-sm text-grayText dark:text-gray-400">
               {t('commons.accountSignUp')}{' '}
               <LinkButton href="/register" title={t('commons.signUp')} />.
             </p>

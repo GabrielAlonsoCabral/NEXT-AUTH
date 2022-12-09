@@ -3,7 +3,7 @@ import React from 'react'
 import GoogleIcon from './icons/google'
 import TwitterIcon from './icons/twitter'
 import GithubIcon from './icons/github'
-import { providers } from '@/types/helpers'
+import { providers } from '@/types'
 import { useTranslation } from 'react-i18next'
 
 interface IProvidersSignInProps {

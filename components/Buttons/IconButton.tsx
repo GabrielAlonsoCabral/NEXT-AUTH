@@ -1,4 +1,4 @@
-import { IconButtonProps } from '@/types/components/IconButton'
+import { IconButtonProps } from '@/types'
 import React, { useEffect, useState } from 'react'
 import styles from './buttons.module.css'
 
@@ -20,6 +20,7 @@ function IconButton({
       facebook: styles.facebook,
       google: styles.google,
       twitter: styles.twitter,
+      navbar: styles.navbar,
       default: styles.default,
     }
 
