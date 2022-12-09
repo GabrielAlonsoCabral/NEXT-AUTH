@@ -118,16 +118,6 @@ function Login({ APP_NAME }: LoginProps) {
               setLoading(true)
             }}
           />
-          {/* <button
-            disabled={loading}
-            className={`${
-              loading
-                ? 'cursor-not-allowed border-gray-200 bg-gray-100'
-                : 'border-black bg-black text-white hover:bg-white hover:text-black'
-            } flex h-10 w-full items-center justify-center rounded-md border text-sm transition-all focus:outline-none dark:bg-[#fbbc05] dark:text-white dark:border-black dark:hover:text-black dark:hover:bg-white`}
-          >
-            {loading ? <LoadingDots color="#808080" /> : <p>Sign In</p>}
-          </button> */}
           <p className="text-center text-sm text-gray-600 dark:text-gray-400">
             Don&apos;t have an account?{' '}
             <Link
