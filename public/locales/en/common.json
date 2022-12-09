@@ -11,6 +11,16 @@
     "continueWith": "Or continue with",
     "here": "here"
   },
+  "forms": {
+    "requireds": {
+      "email": "Fill your email.",
+      "password": "fill your password."
+    },
+    "invalids": {
+      "email": "Email inválido.",
+      "password": "Senha inválida."
+    }
+  },
   "login": {
     "seo": {
       "title": "Login EN",

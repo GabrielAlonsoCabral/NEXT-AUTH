@@ -8,6 +8,7 @@ import ArrowCircleRight from '@/components/icons/arrowCircleRight'
 import Link from 'next/link'
 import FormInput from '../FormInput'
 import { isValidEmail, isValidPassword } from 'common/helpers'
+import FieldErrorLabel from '../FieldErrorLabel'
 
 const FormSignIn = () => {
   const { t } = useTranslation('common')
@@ -19,14 +20,14 @@ const FormSignIn = () => {
         validate={(values) => {
           const errors = { email: '', password: '' }
 
-          if (!values.email) errors.email = 'Required'
-          if (!values.password) errors.password = 'Required'
+          if (!values.email) errors.email = t('forms.requireds.email')
+          if (!values.password) errors.password = t('forms.requireds.password')
 
           if (!isValidEmail(values.email))
-            errors.email = 'Invalid email address'
+            errors.email = t('forms.invalids.email')
 
           if (!isValidPassword(values.password))
-            errors.password = 'Invalid password'
+            errors.password = t('forms.invalids.password')
 
           return errors
         }}
@@ -63,7 +64,10 @@ const FormSignIn = () => {
               autoComplete="email"
               required
             />
-            {errors.email && touched.email && errors.email}
+
+            <FieldErrorLabel
+              title={(errors.email && touched.email && errors.email) || ''}
+            />
             <FormLabel title={t('commons.password')} />
             <FormInput
               name="password"
@@ -74,7 +78,11 @@ const FormSignIn = () => {
               onBlur={handleBlur}
               value={values.password}
             />
-            {errors.password && touched.password && errors.password}
+            <FieldErrorLabel
+              title={
+                (errors.password && touched.password && errors.password) || ''
+              }
+            />
 
             <IconButton
               type="submit"
