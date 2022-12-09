@@ -14,6 +14,9 @@ module.exports = {
     extend: {
       colors: {
         current: "currentColor",
+        'blue-twitter':'#1da1f2',
+        'yellow-google':'#fbbc05',
+        'black-github':"#24292F"
       },
       width: {
         1536: "1536px",

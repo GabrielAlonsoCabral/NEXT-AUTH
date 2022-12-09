@@ -7,7 +7,7 @@ import { GetStaticProps } from 'next'
 import { LoginProps } from '@/types'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import ButtonSignIn from '@/components/Buttons/ButtonSignIn'
+import IconButton from '@/components/Buttons/IconButton'
 import GithubIcon from '@/components/icons/github'
 import { providers } from '@/types/helpers'
 import GoogleIcon from '@/components/icons/google'
@@ -16,7 +16,7 @@ import LoadingDots from '@/components/app/loading-dots'
 import { CircularProgress } from '@chakra-ui/react'
 import TwitterIcon from '@/components/icons/twitter'
 import { useTheme } from 'next-themes'
-import styles from './login.module.css'
+import ArrowCircleRight from '@/components/icons/arrowCircleRight'
 
 function Login({ APP_NAME }: LoginProps) {
   const [loading, setLoading] = useState(false)
@@ -109,7 +109,16 @@ function Login({ APP_NAME }: LoginProps) {
               className="mt-1 dark:bg-gray-50 block w-full appearance-none rounded-md border border-gray-300 dark:border-gray-50 px-3 py-2 placeholder-gray-400 dark:placeholder-gray-700 shadow-sm focus:border-black dark:focus:border-white focus:outline-none focus:ring-black dark:focus:ring-white sm:text-sm"
             />
           </div>
-          <button
+          <IconButton
+            title={!loading ? 'Sign In' : <LoadingDots color="#808080" />}
+            basicStyle="default"
+            disabled={loading}
+            iconRight={!loading ? <ArrowCircleRight /> : undefined}
+            onClick={() => {
+              setLoading(true)
+            }}
+          />
+          {/* <button
             disabled={loading}
             className={`${
               loading
@@ -118,7 +127,7 @@ function Login({ APP_NAME }: LoginProps) {
             } flex h-10 w-full items-center justify-center rounded-md border text-sm transition-all focus:outline-none dark:bg-[#fbbc05] dark:text-white dark:border-black dark:hover:text-black dark:hover:bg-white`}
           >
             {loading ? <LoadingDots color="#808080" /> : <p>Sign In</p>}
-          </button>
+          </button> */}
           <p className="text-center text-sm text-gray-600 dark:text-gray-400">
             Don&apos;t have an account?{' '}
             <Link
@@ -147,25 +156,28 @@ function Login({ APP_NAME }: LoginProps) {
             <>
               <div className="flex flex-wrap px-14 justify-center mt-5 ">
                 <div className="w-full">
-                  <ButtonSignIn
-                    provider={'google'}
-                    icon={<GoogleIcon title={t('commons.GoogleSignIn')} />}
+                  <IconButton
+                    basicStyle={'google'}
+                    iconLeft={<GoogleIcon />}
+                    title={t('commons.GoogleSignIn')}
                     disabled={provider === 'google' && loading}
                     onClick={() => OnClickSignIn('google')}
                   />
                 </div>
                 <div className="w-full">
-                  <ButtonSignIn
-                    provider={'twitter'}
-                    icon={<TwitterIcon title={t('commons.TwitterSignIn')} />}
+                  <IconButton
+                    basicStyle={'twitter'}
+                    iconLeft={<TwitterIcon />}
+                    title={t('commons.TwitterSignIn')}
                     disabled={provider === 'twitter' && loading}
                     onClick={() => OnClickSignIn('twitter')}
                   />
                 </div>
                 <div className="w-full">
-                  <ButtonSignIn
-                    provider={'github'}
-                    icon={<GithubIcon title={t('commons.GithubSignIn')} />}
+                  <IconButton
+                    basicStyle={'github'}
+                    iconLeft={<GithubIcon />}
+                    title={t('commons.GithubSignIn')}
                     disabled={provider === 'github' && loading}
                     onClick={() => OnClickSignIn('github')}
                   />

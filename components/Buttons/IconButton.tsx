@@ -3,30 +3,37 @@ import React, { useEffect, useState } from 'react'
 import styles from './buttons.module.css'
 
 type ButtonSignInProps = {
-  icon: JSX.Element
+  iconLeft?: JSX.Element
+  iconRight?: JSX.Element
   disabled: boolean
   onClick: () => void
-  provider: providers
+  basicStyle: providers | 'default'
+  title: string | JSX.Element
 }
 
 function ButtonSignIn({
-  icon,
+  iconLeft,
+  iconRight,
   onClick,
   disabled,
-  provider,
+  basicStyle,
+  title,
 }: ButtonSignInProps) {
   const [style, setStyle] = useState<string>()
 
   useEffect(() => {
-    const providersStyles = {
+    const basicStyles = {
       github: styles.github,
       apple: styles.apple,
       facebook: styles.facebook,
       google: styles.google,
       twitter: styles.twitter,
+      default: styles.default,
     }
 
-    setStyle(providersStyles[provider])
+    const hasStyle = Object.keys(basicStyles).includes(basicStyle)
+
+    setStyle(hasStyle ? basicStyles[basicStyle] : basicStyles['default'])
   }, [])
   return (
     <button
@@ -35,7 +42,9 @@ function ButtonSignIn({
       disabled={disabled}
       onClick={onClick}
     >
-      {icon}
+      {iconLeft && iconLeft}
+      {title}
+      {iconRight && iconRight}
     </button>
   )
 }
