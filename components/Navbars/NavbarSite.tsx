@@ -46,29 +46,20 @@ export default function NavbarSite() {
                       </Link>
                     ))}
 
-                    <div className="mt-5 flex flex-row w-full">
-                      <div>
-                        <span className="text-gray-800 dark:text-gray-300">
-                          {theme === 'dark' ? 'Dark' : 'Light'} Mode
-                        </span>
+                    <div className="flex flex-row w-full mb-10 mt-5">
+                      <div className="w-1/2">
+                        <LanguageSwitch />
                       </div>
-                      <div className="ml-2">
+                      <div className="w-1/2 ml-5">
                         <ThemeChanger />
                       </div>
                     </div>
 
-                    {/* <div className="mt-5 flex-row"> */}
-                    <div className="w-1/3 mb-3 mt-5">
-                      <LanguageSwitch />
-                    </div>
-                    {/* </div> */}
-
-                    <Link
-                      href="/"
-                      className="w-full px-6 py-2 mt-3 text-center text-black rounded-md md:ml-5 border border-purple dark:border-white dark:text-white dark:hover:border-purple"
-                    >
-                      Login
-                    </Link>
+                    <IconButton
+                      type="submit"
+                      title={t('commons.signIn')}
+                      basicStyle={'navbar'}
+                    />
                   </>
                 </Disclosure.Panel>
               </div>

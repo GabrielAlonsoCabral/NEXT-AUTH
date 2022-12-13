@@ -18,25 +18,32 @@ const ThemeChanger = () => {
       {theme === 'dark' ? (
         <button
           onClick={() => setTheme('light')}
-          className="text-gray-300 rounded-full outline-none focus:outline-none"
+          className="text-gray-600 dark:text-gray-300 rounded-full outline-none focus:outline-none focus:ring-2 focus:ring-gray-600 font-medium inline-flex p-1"
         >
-          <span className="sr-only">Light Mode</span>
+          <span className="sr-only">Dark Mode</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
+            fill="none"
             width={24}
             height={24}
             viewBox="0 0 24 24"
-            fill="currentColor"
+            strokeWidth="1"
+            stroke="currentColor"
+            className="w-6 h-6"
           >
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+            />
           </svg>
         </button>
       ) : (
         <button
           onClick={() => setTheme('dark')}
-          className="text-gray-500 rounded-full"
+          className="text-gray-600 dark:text-gray-300 rounded-full outline-none focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium inline-flex p-1"
         >
-          <span className="sr-only">Dark Mode</span>
+          <span className="sr-only">Light Mode</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
