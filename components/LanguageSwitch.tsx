@@ -33,7 +33,7 @@ function LanguageSwitch() {
       icon={getCurrentFlagIcon(i18n.language as locale)}
       value={i18n.language}
       size={'sm'}
-      className="rounded-md justify-center text-gray-600 dark:text-gray-300 text-xs"
+      className="rounded-md text-gray-600 dark:text-gray-300 text-xs"
     >
       <option value="en" className="text-xs">
         {t('languages.english')}

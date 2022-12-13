@@ -46,16 +46,22 @@ export default function NavbarSite() {
                       </Link>
                     ))}
 
-                    <div className="mt-5 flex flex-row mb-5">
+                    <div className="mt-5 flex flex-row w-full">
                       <div>
                         <span className="text-gray-800 dark:text-gray-300">
                           {theme === 'dark' ? 'Dark' : 'Light'} Mode
                         </span>
                       </div>
-                      <div className="ml-5">
+                      <div className="ml-2">
                         <ThemeChanger />
                       </div>
                     </div>
+
+                    {/* <div className="mt-5 flex-row"> */}
+                    <div className="w-1/3 mb-3 mt-5">
+                      <LanguageSwitch />
+                    </div>
+                    {/* </div> */}
 
                     <Link
                       href="/"
