@@ -15,6 +15,10 @@
       "email": "Preencha seu email.",
       "password": "Preencha sua senha."
     },
+    "placeholders": {
+      "email": "Digite seu email",
+      "password": "Digite sua senha"
+    },
     "invalids": {
       "email": "Email inválido.",
       "password": "Senha inválida."
@@ -26,5 +30,9 @@
       "description": "Descrição PT-BR"
     },
     "description": "Inicie sessão para gerenciar seu site."
+  },
+  "languages": {
+    "portuguese": "Português",
+    "english": "Inglês"
   }
 }

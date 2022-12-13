@@ -2,6 +2,10 @@
   @apply m-2 w-4 h-4;
 }
 
+.flag {
+  @apply w-4;
+}
+
 .menuSvg {
   @apply w-6 h-6 fill-current;
 }

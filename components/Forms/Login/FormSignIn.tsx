@@ -21,6 +21,7 @@ const FormSignIn = () => {
           const errors = { email: '', password: '' }
 
           if (!values.email) errors.email = t('forms.requireds.email')
+
           if (!values.password) errors.password = t('forms.requireds.password')
 
           if (!isValidEmail(values.email))
@@ -60,7 +61,7 @@ const FormSignIn = () => {
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.email}
-              placeholder="panic@thedis.co"
+              placeholder={t('forms.placeholders.email')}
               autoComplete="email"
               required
             />
@@ -98,7 +99,7 @@ const FormSignIn = () => {
               onClick={() => setSubmitting(true)}
               iconRight={!isSubmitting ? <ArrowCircleRight /> : undefined}
             />
-            <p className="text-center text-sm text-grayText dark:text-gray-400">
+            <p className="text-center text-sm text-grayText dark:text-gray-300">
               {t('commons.accountSignUp')}{' '}
               <LinkButton href="/register" title={t('commons.signUp')} />.
             </p>

@@ -3,9 +3,7 @@ import React from 'react'
 
 function FieldErrorLabel({ title }: BasicPropsTitle) {
   return title?.length ? (
-    <p className="text-grayText dark:text-white text-sm leading-[8px]">
-      {title}
-    </p>
+    <p className="text-red-500 text-sm leading-[8px]">{title}</p>
   ) : null
 }
 

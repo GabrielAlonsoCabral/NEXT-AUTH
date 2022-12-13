@@ -6,14 +6,17 @@ import NavbarMenuIcon from '../icons/NavbarMenuIcon'
 import { siteNavigations } from 'common'
 import NavigationButton from '../Buttons/NavigationButton'
 import IconButton from '../Buttons/IconButton'
-import ArrowCircleRight from '../icons/arrowCircleRight'
 import { useTranslation } from 'react-i18next'
+import { useTheme } from 'next-themes'
+import LanguageSwitch from '../LanguageSwitch'
 
 export default function NavbarSite() {
   const { t } = useTranslation('common')
+  const { theme } = useTheme()
+
   return (
     <div className="w-full border-b-[1px] dark:border-gray-500">
-      <nav className="container relative flex flex-wrap items-center justify-between px-8 py-5 mx-auto lg:justify-between xl:px-0">
+      <nav className="container relative flex flex-wrap items-center justify-between px-8 py-5 mx-auto xl:px-0">
         <Disclosure>
           {({ open }) => (
             <>
@@ -46,18 +49,13 @@ export default function NavbarSite() {
                     <div className="mt-5 flex flex-row mb-5">
                       <div>
                         <span className="text-gray-800 dark:text-gray-300">
-                          Dark Mode
+                          {theme === 'dark' ? 'Dark' : 'Light'} Mode
                         </span>
                       </div>
                       <div className="ml-5">
                         <ThemeChanger />
                       </div>
                     </div>
-
-                    {/* <CTAButton
-                      title="Get Started"
-                      className="w-full mt-3 text-center lg:ml-5"
-                    /> */}
 
                     <Link
                       href="/"
@@ -81,7 +79,8 @@ export default function NavbarSite() {
           </ul>
         </div>
 
-        <div className="hidden lg:flex space-x-4 w-1/6">
+        <div className="hidden lg:flex space-x-4 w-1/4">
+          <LanguageSwitch />
           <IconButton
             type="submit"
             title={t('commons.signIn')}

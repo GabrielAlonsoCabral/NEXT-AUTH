@@ -13,8 +13,11 @@ import { useTheme } from 'next-themes'
 import ProvidersSignIn from '@/components/ProvidersSignIn'
 import DividerWithTitle from '@/components/DividerWithTitle'
 import FormSignIn from '@/components/Forms/Login/FormSignIn'
-import NavbarSite from '@/components/Navbars/NavbarSite'
+import dynamic from 'next/dynamic'
 
+const NavbarSite = dynamic(() => import('@/components/Navbars/NavbarSite'), {
+  ssr: false,
+})
 function Login({ APP_NAME }: LoginProps) {
   const [loading, setLoading] = useState(false)
 
@@ -56,7 +59,7 @@ function Login({ APP_NAME }: LoginProps) {
               width={20}
               height={20}
             />
-            <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-200">
+            <h3 className="text-xl font-bold text-black dark:text-gray-200">
               {APP_NAME}
             </h3>
             <p className="text-sm text-grayText dark:text-gray-300">
