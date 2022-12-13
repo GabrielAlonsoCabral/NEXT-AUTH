@@ -9,7 +9,6 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { providers } from '@/types'
 import { CircularProgress } from '@chakra-ui/react'
-import { useTheme } from 'next-themes'
 import ProvidersSignIn from '@/components/ProvidersSignIn'
 import DividerWithTitle from '@/components/DividerWithTitle'
 import FormSignIn from '@/components/Forms/Login/FormSignIn'
@@ -22,18 +21,10 @@ function Login({ APP_NAME }: LoginProps) {
   const [loading, setLoading] = useState(false)
 
   const router = useRouter()
-  const { theme, setTheme } = useTheme()
 
   const { t } = useTranslation('common')
 
   const { error } = router.query
-
-  const onToggleLanguageClick = (newLocale: string) => {
-    const { pathname, asPath, query } = router
-    router.push({ pathname, query }, asPath, { locale: newLocale })
-  }
-
-  const changeTo = router.locale === 'en' ? 'pt' : 'en'
 
   const onProviderSignIn = (provider: providers) => {
     setLoading(true)
@@ -49,7 +40,7 @@ function Login({ APP_NAME }: LoginProps) {
   return (
     <>
       <NavbarSite />
-      <div className="flex h-screen w-screen items-center justify-center bg-gray-50 px-5 dark:bg-black/60 mt-0">
+      <div className="flex w-screen items-center justify-center bg-gray-50 px-5 dark:bg-black/60 py-10">
         <div className="w-full max-w-md shadow-2xl dark:shadow-none bg-white py-5 rounded-[34px] dark:bg-black/60 border  dark:border-gray-500 ">
           <div className="flex flex-col items-center justify-center space-y-3 px-4 py-6 pt-8 text-center sm:px-16 rounded-[34px]">
             <Image

@@ -7,12 +7,10 @@ import { siteNavigations } from 'common'
 import NavigationButton from '../Buttons/NavigationButton'
 import IconButton from '../Buttons/IconButton'
 import { useTranslation } from 'react-i18next'
-import { useTheme } from 'next-themes'
 import LanguageSwitch from '../LanguageSwitch'
 
 export default function NavbarSite() {
   const { t } = useTranslation('common')
-  const { theme } = useTheme()
 
   return (
     <div className="w-full border-b-[1px] dark:border-gray-500">
