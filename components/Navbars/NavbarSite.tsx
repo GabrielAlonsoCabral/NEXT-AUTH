@@ -50,7 +50,7 @@ export default function NavbarSite() {
                       <div className="w-1/2">
                         <LanguageSwitch />
                       </div>
-                      <div className="w-1/2 ml-5">
+                      <div className="w-1/2 ml-5 mt-1">
                         <ThemeChanger />
                       </div>
                     </div>

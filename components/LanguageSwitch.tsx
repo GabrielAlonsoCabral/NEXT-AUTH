@@ -26,6 +26,8 @@ function LanguageSwitch() {
 
   return (
     <Select
+      height={'10'}
+      rounded="md"
       onChange={(e) => {
         const selectedLocale: locale = e.target.value as locale
         changeLocale(selectedLocale)
