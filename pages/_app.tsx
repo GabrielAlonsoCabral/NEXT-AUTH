@@ -14,7 +14,7 @@ function App({
   pageProps: { session, ...pageProps },
 }: AppProps<{ session: Session }>) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="light">
+    <ThemeProvider attribute="class" disableTransitionOnChange>
       <ChakraProvider>
         <SessionProvider session={session}>
           <Component {...pageProps} />

@@ -6,6 +6,17 @@ import SunIcon from './icons/sun'
 const ThemeChanger = () => {
   const { theme, setTheme } = useTheme()
 
+  const themeSwitch = () => {
+    const handleThemes = {
+      dark: setTheme('light'),
+      light: setTheme('dark'),
+    }
+
+    type Themes = keyof typeof handleThemes
+
+    handleThemes[theme as Themes]
+  }
+
   return (
     <div className="flex items-center">
       {theme === 'dark' ? (
