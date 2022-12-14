@@ -3,14 +3,14 @@ import ThemeChanger from '../DarkSwitch'
 import { Disclosure } from '@headlessui/react'
 import LinkButton from '../Buttons/LinkButton'
 import NavbarMenuIcon from '../icons/NavbarMenuIcon'
-import { siteNavigations } from 'common'
+import { navigations } from 'common'
 import NavigationButton from '../Buttons/NavigationButton'
 import IconButton from '../Buttons/IconButton'
 import { useTranslation } from 'react-i18next'
 import LanguageSwitch from '../LanguageSwitch'
 
 export default function NavbarSite() {
-  const { t } = useTranslation('common')
+  const { t, i18n } = useTranslation('common')
 
   return (
     <div className="w-full border-b-[1px] dark:border-gray-500">
@@ -34,14 +34,22 @@ export default function NavbarSite() {
 
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
                   <>
-                    {siteNavigations.map((item, index) => (
-                      <Link
+                    {navigations.map((item, index) => (
+                      <NavigationButton
                         key={index}
-                        href="/"
-                        className="w-full px-4 py-2 -ml-4 text-grayText dark:hover:text-gray-100 rounded-md dark:text-gray-300 hover:text-grayHoverText focus:text-white focus:bg-purple dark:focus:bg-purple dark:focus:text-white focus:outline-none dark:focus:bg-neutral-700"
-                      >
-                        {item}
-                      </Link>
+                        title={t(`routes.${item.key}.title`)}
+                        isMobile
+                        href={t(`routes.${item.key}.path`, {
+                          lang: i18n.language,
+                        })}
+                      />
+                      // <Link
+                      //   key={index}
+                      //   href={t(`routes.${item.key}.path`)}
+                      //   className="w-full px-4 py-2 -ml-4 text-grayText dark:hover:text-gray-100 rounded-md dark:text-gray-300 hover:text-grayHoverText focus:text-white focus:bg-purple dark:focus:bg-purple dark:focus:text-white focus:outline-none dark:focus:bg-neutral-700"
+                      // >
+                      //   {t(`routes.${item.key}.title`)}
+                      // </Link>
                     ))}
 
                     <div className="flex flex-row w-full mb-10 mt-5">
@@ -68,8 +76,12 @@ export default function NavbarSite() {
         {/* menu  */}
         <div className="hidden text-center lg:flex lg:items-center">
           <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
-            {siteNavigations.map((menu, index) => (
-              <NavigationButton key={index} title={menu} href={'/'} />
+            {navigations.map((item, index) => (
+              <NavigationButton
+                key={index}
+                title={t(`routes.${item.key}.title`)}
+                href={t(`routes.${item.key}.path`, { lang: i18n.language })}
+              />
             ))}
           </ul>
         </div>

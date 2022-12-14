@@ -34,5 +34,27 @@
   "languages": {
     "portuguese": "Portuguese",
     "english": "English"
+  },
+  "routes": {
+    "home": {
+      "title": "Home",
+      "path": "/{{lang}}/"
+    },
+    "offers": {
+      "title": "Offers",
+      "path": "/{{lang}}/offers"
+    },
+    "examples": {
+      "title": "Examples",
+      "path": "/{{lang}}/examples"
+    },
+    "doubts": {
+      "title": "Questions",
+      "path": "/{{lang}}/doubts"
+    },
+    "support": {
+      "title": "Support",
+      "path": "/{{lang}}/support"
+    }
   }
 }
