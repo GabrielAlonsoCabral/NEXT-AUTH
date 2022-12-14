@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import toast from 'react-hot-toast'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps, GetStaticProps } from 'next'
 import { LoginProps } from '@/types'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -82,7 +82,11 @@ function Login({ APP_NAME }: LoginProps) {
   )
 }
 
-export const getStaticProps: GetStaticProps<LoginProps> = async (ctx) => {
+export const getServerSideProps: GetServerSideProps<LoginProps> = async (
+  ctx
+) => {
+  ctx.res.setHeader('Cache-control', 'public, max-age=31536000') //1year
+
   return {
     props: {
       ...(await serverSideTranslations(

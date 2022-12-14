@@ -8,13 +8,13 @@ const ThemeChanger = () => {
 
   const themeSwitch = () => {
     const handleThemes = {
-      dark: setTheme('light'),
-      light: setTheme('dark'),
+      dark: () => setTheme('light'),
+      light: () => setTheme('dark'),
     }
 
     type Themes = keyof typeof handleThemes
 
-    handleThemes[theme as Themes]
+    handleThemes[theme as Themes]()
   }
 
   return (
