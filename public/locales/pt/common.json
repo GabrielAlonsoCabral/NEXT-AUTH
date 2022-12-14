@@ -32,8 +32,8 @@
     "description": "Inicie sessão para gerenciar seu site."
   },
   "languages": {
-    "portuguese": "Português",
-    "english": "Inglês"
+    "portuguese": "PT-BR",
+    "english": "EN-USA"
   },
   "routes": {
     "home": {

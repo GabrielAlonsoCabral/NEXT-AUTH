@@ -26,9 +26,9 @@ function LanguageSwitch() {
 
   return (
     <Select
-      height={'10'}
+      style={{ height: '40px', cursor: 'pointer' }}
+      _hover={{ borderColor: 'border-yellow-google' }}
       rounded="md"
-      // borderColor={}
       borderColor={'#cbd5e1'}
       _dark={{
         borderColor: '#fbbc05',

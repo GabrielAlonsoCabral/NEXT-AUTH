@@ -13,7 +13,7 @@ export default function NavbarSite() {
 
   return (
     <div className="w-full border-b-[1px] dark:border-gray-500">
-      <nav className="container relative flex flex-wrap items-center justify-between px-8 py-5 mx-auto xl:px-0">
+      <nav className="relative flex flex-wrap items-center justify-between py-5 px-10">
         <Disclosure>
           {({ open }) => (
             <>
@@ -66,16 +66,14 @@ export default function NavbarSite() {
         </Disclosure>
 
         {/* menu  */}
-        <div className="hidden text-center lg:flex lg:items-center">
-          <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
-            {navigations.map((item, index) => (
-              <NavigationButton
-                key={index}
-                title={t(`routes.${item.key}.title`)}
-                href={t(`routes.${item.key}.path`, { lang: i18n.language })}
-              />
-            ))}
-          </ul>
+        <div className="hidden items-center justify-center lg:flex">
+          {navigations.map((item, index) => (
+            <NavigationButton
+              key={index}
+              title={t(`routes.${item.key}.title`)}
+              href={t(`routes.${item.key}.path`, { lang: i18n.language })}
+            />
+          ))}
         </div>
 
         <div className="hidden lg:flex space-x-4 w-1/4">

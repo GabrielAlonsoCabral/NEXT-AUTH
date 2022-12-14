@@ -32,8 +32,8 @@
     "description": "Start section to manage your site."
   },
   "languages": {
-    "portuguese": "Portuguese",
-    "english": "English"
+    "portuguese": "PT-BR",
+    "english": "EN-USA"
   },
   "routes": {
     "home": {

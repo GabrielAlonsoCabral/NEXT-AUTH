@@ -1,4 +1,4 @@
-import { INavigationButtonProps, WithClassName } from '@/types'
+import { INavigationButtonProps } from '@/types'
 import Link from 'next/link'
 import React from 'react'
 
