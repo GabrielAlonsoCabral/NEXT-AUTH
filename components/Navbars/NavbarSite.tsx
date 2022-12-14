@@ -42,13 +42,6 @@ export default function NavbarSite() {
                           lang: i18n.language,
                         })}
                       />
-                      // <Link
-                      //   key={index}
-                      //   href={t(`routes.${item.key}.path`)}
-                      //   className="w-full px-4 py-2 -ml-4 text-grayText dark:hover:text-gray-100 rounded-md dark:text-gray-300 hover:text-grayHoverText focus:text-white focus:bg-purple dark:focus:bg-purple dark:focus:text-white focus:outline-none dark:focus:bg-neutral-700"
-                      // >
-                      //   {t(`routes.${item.key}.title`)}
-                      // </Link>
                     ))}
 
                     <div className="flex flex-row w-full mb-10 mt-5">
