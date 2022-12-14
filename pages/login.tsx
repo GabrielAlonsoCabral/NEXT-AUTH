@@ -41,7 +41,7 @@ function Login({ APP_NAME }: LoginProps) {
     <div className="bg-gray-50 dark:bg-black/60 h-screen">
       <NavbarSite />
       <div className="flex w-screen items-center justify-center px-5  py-10">
-        <div className="w-full max-w-md shadow-2xl dark:shadow-none bg-white py-5 rounded-[34px] dark:bg-black/60 border  dark:border-gray-500 ">
+        <div className="w-full max-w-md shadow-2xl dark:shadow-none  py-5 rounded-[34px] border  dark:border-gray-500 ">
           <div className="flex flex-col items-center justify-center space-y-3 px-4 py-6 pt-8 text-center sm:px-16 rounded-[34px]">
             <Image
               src="/logo.png"
