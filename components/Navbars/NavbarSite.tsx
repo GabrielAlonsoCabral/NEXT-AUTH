@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import ThemeChanger from '../DarkSwitch'
 import { Disclosure } from '@headlessui/react'
 import LinkButton from '../Buttons/LinkButton'
