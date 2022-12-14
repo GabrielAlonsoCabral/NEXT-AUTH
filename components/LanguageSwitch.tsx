@@ -28,6 +28,11 @@ function LanguageSwitch() {
     <Select
       height={'10'}
       rounded="md"
+      // borderColor={}
+      borderColor={'#cbd5e1'}
+      _dark={{
+        borderColor: '#fbbc05',
+      }}
       onChange={(e) => {
         const selectedLocale: locale = e.target.value as locale
         changeLocale(selectedLocale)
@@ -35,7 +40,7 @@ function LanguageSwitch() {
       icon={getCurrentFlagIcon(i18n.language as locale)}
       value={i18n.language}
       size={'sm'}
-      className="rounded-md text-gray-600 dark:text-gray-300 text-xs"
+      className="rounded-md text-gray-600 dark:text-gray-300 text-xs dark:border-yellow-google"
     >
       <option value="en" className="text-xs">
         {t('languages.english')}
