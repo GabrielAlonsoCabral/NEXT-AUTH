@@ -3,7 +3,7 @@
 }
 
 .google {
-  @apply text-white bg-yellow-google h-10 hover:bg-white hover:border-black border border-yellow-google hover:text-black focus:outline-none font-bold rounded-md text-sm text-center flex items-center w-full transition-all justify-center;
+  @apply text-black bg-yellow-google h-10 hover:bg-white hover:border-black border border-yellow-google hover:text-black focus:outline-none font-bold rounded-md text-sm text-center flex items-center w-full transition-all justify-center;
 }
 
 .twitter {
@@ -11,9 +11,9 @@
 }
 
 .default {
-  @apply text-gray-600 bg-yellow-google h-10 hover:bg-white hover:border-black border border-yellow-google hover:text-black focus:outline-none font-bold rounded-md text-base text-center flex items-center w-full transition-all justify-center;
+  @apply text-black bg-yellow-google h-10 hover:bg-white hover:border-black border border-yellow-google hover:text-black focus:outline-none font-bold rounded-md text-base text-center flex items-center w-full transition-all justify-center;
 }
 
 .navbar {
-  @apply text-gray-600 bg-yellow-google h-10 hover:bg-white hover:border-black border border-yellow-google hover:text-black focus:outline-none font-bold rounded-md text-base text-center flex items-center w-full transition-all justify-center;
+  @apply text-black bg-yellow-google h-10 hover:bg-white hover:border-black border border-yellow-google hover:text-black focus:outline-none font-bold rounded-md text-base text-center flex items-center w-full transition-all justify-center;
 }

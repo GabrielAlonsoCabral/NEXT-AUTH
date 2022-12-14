@@ -21,7 +21,7 @@ const ThemeChanger = () => {
     <div className="flex items-center">
       {theme === 'dark' ? (
         <button
-          onClick={() => setTheme('light')}
+          onClick={themeSwitch}
           className="text-gray-300 hover:text-gray-500 rounded-full outline-none focus:outline-none focus:ring-2 focus:ring-gray-600 font-medium inline-flex p-1 "
         >
           <span className="sr-only">Dark Mode</span>
@@ -29,7 +29,7 @@ const ThemeChanger = () => {
         </button>
       ) : (
         <button
-          onClick={() => setTheme('dark')}
+          onClick={themeSwitch}
           className="text-gray-600 hover:text-gray-400 rounded-full outline-none focus:outline-none focus:ring-2 focus:ring-gray-300 inline-flex p-1"
         >
           <SunIcon />
