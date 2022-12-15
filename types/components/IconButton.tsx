@@ -8,4 +8,5 @@ export type IconButtonProps = {
   basicStyle: providers | 'default' | 'navbar'
   title: string | JSX.Element
   type: 'submit' | 'reset' | 'button'
+  href?: 'string'
 }

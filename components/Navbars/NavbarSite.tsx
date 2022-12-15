@@ -7,9 +7,11 @@ import NavigationButton from '../Buttons/NavigationButton'
 import IconButton from '../Buttons/IconButton'
 import { useTranslation } from 'react-i18next'
 import LanguageSwitch from '../LanguageSwitch'
+import { useRouter } from 'next/router'
 
 export default function NavbarSite() {
   const { t, i18n } = useTranslation('common')
+  const { replace } = useRouter()
 
   return (
     <div className="w-full border-b-[1px] dark:border-gray-500">
@@ -57,6 +59,9 @@ export default function NavbarSite() {
                       type="submit"
                       title={t('commons.signIn')}
                       basicStyle={'navbar'}
+                      onClick={() => {
+                        replace('/login')
+                      }}
                     />
                   </>
                 </Disclosure.Panel>
@@ -82,6 +87,9 @@ export default function NavbarSite() {
             type="submit"
             title={t('commons.signIn')}
             basicStyle={'navbar'}
+            onClick={() => {
+              replace('/login')
+            }}
           />
           <ThemeChanger />
         </div>
