@@ -41,7 +41,7 @@ function Login({ APP_NAME }: LoginProps) {
     <div className="bg-gray-50 dark:bg-black/60">
       <NavbarSite />
       <div className="flex w-screen items-center justify-center px-5 py-10">
-        <div className="w-full max-w-md shadow-2xl dark:shadow-none  py-5 rounded-[34px] border  dark:border-gray-500">
+        <div className="w-full max-w-lg shadow-2xl dark:shadow-none  py-5 rounded-[34px] border  dark:border-gray-500">
           <div className="flex flex-col items-center justify-center space-y-3 px-4 py-6 pt-8 text-center">
             <Image
               src="/logo.png"
@@ -85,8 +85,6 @@ function Login({ APP_NAME }: LoginProps) {
 export const getServerSideProps: GetServerSideProps<LoginProps> = async (
   ctx
 ) => {
-  ctx.res.setHeader('Cache-control', 'public, max-age=31536000') //1year
-
   return {
     props: {
       ...(await serverSideTranslations(
