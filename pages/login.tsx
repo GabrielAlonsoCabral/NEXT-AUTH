@@ -40,13 +40,13 @@ function Login({ APP_NAME }: LoginProps) {
 
   return (
     <div className="bg-gray-50 dark:bg-black/60">
+      <NavbarSite />
       <Head
         description={t('login.seo.description')}
         title={t('login.seo.title')}
         logo={'/logo.png'}
       />
-      <NavbarSite />
-      <div className="flex w-screen items-center justify-center px-5 py-10">
+      <div className="flex w-screen items-center justify-center px-5 h-screen">
         <div className="w-full max-w-lg shadow-2xl dark:shadow-none  py-5 rounded-[34px] border  dark:border-gray-500">
           <div className="flex flex-col items-center justify-center space-y-3 px-4 py-6 pt-8 text-center">
             <Image
