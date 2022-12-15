@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import toast from 'react-hot-toast'
-import { GetServerSideProps, GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { LoginProps } from '@/types'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -13,6 +13,7 @@ import ProvidersSignIn from '@/components/ProvidersSignIn'
 import DividerWithTitle from '@/components/DividerWithTitle'
 import FormSignIn from '@/components/Forms/Login/FormSignIn'
 import dynamic from 'next/dynamic'
+import Head from '@/components/Head'
 
 const NavbarSite = dynamic(() => import('@/components/Navbars/NavbarSite'), {
   ssr: false,
@@ -39,6 +40,11 @@ function Login({ APP_NAME }: LoginProps) {
 
   return (
     <div className="bg-gray-50 dark:bg-black/60">
+      <Head
+        description={t('login.seo.description')}
+        title={t('login.seo.title')}
+        logo={'/logo.png'}
+      />
       <NavbarSite />
       <div className="flex w-screen items-center justify-center px-5 py-10">
         <div className="w-full max-w-lg shadow-2xl dark:shadow-none  py-5 rounded-[34px] border  dark:border-gray-500">

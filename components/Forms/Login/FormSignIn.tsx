@@ -100,7 +100,7 @@ const FormSignIn = () => {
               iconRight={!isSubmitting ? <ArrowCircleRight /> : undefined}
             />
             <p className="text-center text-sm text-grayText dark:text-gray-300">
-              {t('commons.accountSignUp')}{' '}
+              {t('login.accountSignUp')}{' '}
               <LinkButton href="/register" title={t('commons.signUp')} />.
             </p>
           </form>

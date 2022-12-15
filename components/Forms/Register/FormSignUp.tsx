@@ -89,7 +89,7 @@ const FormSignIn = () => {
               type="submit"
               title={
                 !isSubmitting ? (
-                  t('commons.signIn')
+                  t('commons.signUp')
                 ) : (
                   <LoadingDots color="#808080" />
                 )
@@ -100,8 +100,8 @@ const FormSignIn = () => {
               iconRight={!isSubmitting ? <ArrowCircleRight /> : undefined}
             />
             <p className="text-center text-sm text-grayText dark:text-gray-300">
-              {t('commons.accountSignUp')}{' '}
-              <LinkButton href="/register" title={t('commons.signUp')} />.
+              {t('register.accountSignIn')}{' '}
+              <LinkButton href="/login" title={t('commons.signIn')} />.
             </p>
           </form>
         )}

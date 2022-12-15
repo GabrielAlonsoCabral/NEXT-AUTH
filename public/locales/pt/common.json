@@ -5,7 +5,6 @@
     "GithubSignIn": "Acessar com Github",
     "signIn": "Acessar",
     "signUp": "Cadastre-se",
-    "accountSignUp": "Ainda não possui uma conta?",
     "email": "Email",
     "password": "Senha",
     "continueWith": "Ou continue com"
@@ -26,10 +25,19 @@
   },
   "login": {
     "seo": {
-      "title": "Login PT",
-      "description": "Descrição PT-BR"
+      "title": "Login | Citizens",
+      "description": "Se você pode sonhar, você pode vender com Citizens."
     },
-    "description": "Inicie sessão para gerenciar seu site."
+    "description": "Inicie sessão para gerenciar seu site.",
+    "accountSignUp": "Ainda não possui uma conta?"
+  },
+  "register": {
+    "seo": {
+      "title": "Cadastro | Citizens",
+      "description": "Você está a 1 passo do seu próximo site."
+    },
+    "description": "Crie sua conta para gerenciar seu site.",
+    "accountSignIn": "Já possui uma conta?"
   },
   "languages": {
     "portuguese": "PT-BR",

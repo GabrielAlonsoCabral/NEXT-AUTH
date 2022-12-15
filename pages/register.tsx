@@ -13,6 +13,7 @@ import ProvidersSignIn from '@/components/ProvidersSignIn'
 import DividerWithTitle from '@/components/DividerWithTitle'
 import FormSignUp from '@/components/Forms/Register/FormSignUp'
 import dynamic from 'next/dynamic'
+import Head from '@/components/Head'
 
 const NavbarSite = dynamic(() => import('@/components/Navbars/NavbarSite'), {
   ssr: false,
@@ -40,6 +41,11 @@ function Login({ APP_NAME }: LoginProps) {
   return (
     <div className="bg-gray-50 dark:bg-black/60">
       <NavbarSite />
+      <Head
+        description={t('register.seo.description')}
+        title={t('register.seo.title')}
+        logo={'/logo.png'}
+      />
       <div className="flex w-screen items-center justify-center px-5 py-10">
         <div className="w-full max-w-xl shadow-2xl dark:shadow-none  py-5 rounded-[34px] border  dark:border-gray-500">
           <div className="flex flex-col items-center justify-center space-y-3 px-4 py-6 pt-8 text-center">
@@ -54,7 +60,7 @@ function Login({ APP_NAME }: LoginProps) {
               {APP_NAME}
             </h3>
             <p className="text-sm text-grayText dark:text-gray-300">
-              Crie sua conta para gerenciar seu site.
+              {t('register.description')}
             </p>
           </div>
 
