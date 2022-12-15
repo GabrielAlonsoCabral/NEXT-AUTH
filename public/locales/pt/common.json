@@ -48,17 +48,21 @@
       "title": "Início",
       "path": "/{{lang}}/"
     },
-    "offers": {
-      "title": "Ofertas",
-      "path": "/{{lang}}/offers"
+    "plans": {
+      "title": "Planos",
+      "path": "/{{lang}}/plans"
     },
     "examples": {
       "title": "Exemplos",
       "path": "/{{lang}}/examples"
     },
-    "doubts": {
-      "title": "Dúvidas",
-      "path": "/{{lang}}/doubts"
+    "faq": {
+      "title": "FAQ's",
+      "path": "/{{lang}}/faqs"
+    },
+    "docs": {
+      "title": "Documentação",
+      "path": "/{{lang}}/docs"
     },
     "support": {
       "title": "Suporte",

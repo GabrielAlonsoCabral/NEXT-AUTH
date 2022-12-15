@@ -5,13 +5,16 @@ export const navigations: navigation[] = [
     key: 'home',
   },
   {
-    key: 'offers',
+    key: 'plans',
   },
   {
     key: 'examples',
   },
   {
-    key: 'doubts',
+    key: 'faq',
+  },
+  {
+    key: 'docs',
   },
   {
     key: 'support',

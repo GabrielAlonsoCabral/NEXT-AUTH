@@ -11,7 +11,7 @@ export interface WithSitePost extends Post {
   site: Site | null
 }
 
-export type urlKeys = 'home' | 'offers' | 'examples' | 'doubts' | 'support'
+export type urlKeys = 'home' | 'plans' | 'examples' | 'support' | 'faq' | 'docs'
 
 export type navigation = {
   key: urlKeys
