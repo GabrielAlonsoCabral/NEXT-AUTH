@@ -3,9 +3,20 @@ export const isValidEmail = (email: string) => {
   return emailRegex.test(email)
 }
 
+export const isValidName = (name: string) => {
+  const originalLength = name.length
+  let clearedName = name.replace(/\[\d+\]/g, '')
+  clearedName = name.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '')
+
+  return originalLength === clearedName.length
+}
+
 export const isValidPassword = (password: string) => {
-  const strongRegex = new RegExp(
-    '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#.$%^&*])(?=.{8,})'
-  )
-  return strongRegex.test(password)
+  const validations = {
+    strong: new RegExp(
+      '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#.$%^&*])(?=.{8,})'
+    ),
+    medium: new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})'),
+  }
+  return validations['medium'].test(password)
 }

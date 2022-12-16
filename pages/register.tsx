@@ -38,7 +38,7 @@ function Login({ APP_NAME }: LoginProps) {
   }, [error])
 
   return (
-    <div className="bg-gray-50 dark:bg-black/60 h-screen">
+    <div className="bg-gray-50 dark:bg-black/60 min-h-screen">
       <NavbarSite />
       <Head
         description={t('register.seo.description')}

@@ -1,13 +1,13 @@
-import ThemeChanger from '../DarkSwitch'
 import { Disclosure } from '@headlessui/react'
-import LinkButton from '../Buttons/LinkButton'
-import NavbarMenuIcon from '../icons/NavbarMenuIcon'
 import { navigations } from 'common'
-import NavigationButton from '../Buttons/NavigationButton'
-import IconButton from '../Buttons/IconButton'
-import { useTranslation } from 'react-i18next'
-import LanguageSwitch from '../LanguageSwitch'
 import { useRouter } from 'next/router'
+import { useTranslation } from 'react-i18next'
+import IconButton from '../Buttons/IconButton'
+import LinkButton from '../Buttons/LinkButton'
+import NavigationButton from '../Buttons/NavigationButton'
+import ThemeChanger from '../DarkSwitch'
+import NavbarMenuIcon from '../icons/NavbarMenuIcon'
+import LanguageSwitch from '../LanguageSwitch'
 
 export default function NavbarSite() {
   const { t, i18n } = useTranslation('common')
@@ -33,7 +33,7 @@ export default function NavbarSite() {
                   <NavbarMenuIcon isOpen={open} />
                 </Disclosure.Button>
 
-                <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
+                <Disclosure.Panel className="flex flex-wrap my-5 lg:hidden w-full">
                   <>
                     {navigations.map((item, index) => (
                       <NavigationButton

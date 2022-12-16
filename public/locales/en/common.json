@@ -7,20 +7,27 @@
     "signUp": "Sign up",
     "email": "Email",
     "password": "Password",
-    "continueWith": "Or continue with"
+    "continueWith": "Or continue with",
+    "name": "Name"
   },
   "forms": {
     "requireds": {
       "email": "Fill your email.",
-      "password": "fill your password."
+      "password": "fill your password.",
+      "name": "Fill your name..",
+      "confirmPassword": "Fill your password again."
     },
     "invalids": {
-      "email": "Email inválido.",
-      "password": "Senha inválida."
+      "email": "Invalid email.",
+      "password": "Invalid password.",
+      "name": "Invalid name.",
+      "confirmPassword": "Your passwords are different."
     },
     "placeholders": {
       "email": "Type your email",
-      "password": "Type your password"
+      "password": "Type your password",
+      "name": "Type your name",
+      "confirmPassword": "Type your password again"
     }
   },
   "login": {
@@ -37,7 +44,9 @@
       "description": "You're one step to your next site."
     },
     "description": "Create an account to manage your site.",
-    "accountSignIn": "Already have an account?"
+    "accountSignIn": "Already have an account?",
+    "confirmPassword": "Password confirm",
+    "passwordLabel": "Your password must contain at least 8 characters, uppercases and lowercases."
   },
   "languages": {
     "portuguese": "PT-BR",

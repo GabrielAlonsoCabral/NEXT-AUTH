@@ -1,7 +1,6 @@
 import { locale } from '@/types'
 import { Select } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
-import React from 'react'
 import { useTranslation } from 'react-i18next'
 import BRFlag from './icons/flags/BRFlag'
 import USFlag from './icons/flags/USFlag'
@@ -27,6 +26,7 @@ function LanguageSwitch() {
   return (
     <Select
       style={{ height: '40px', cursor: 'pointer' }}
+      // maxW={150}
       _hover={{ borderColor: 'border-yellow-google' }}
       rounded="md"
       borderColor={'#cbd5e1'}
@@ -39,7 +39,7 @@ function LanguageSwitch() {
       }}
       icon={getCurrentFlagIcon(i18n.language as locale)}
       value={i18n.language}
-      size={'sm'}
+      size={'xs'}
       className="rounded-md text-gray-600 dark:text-gray-300 text-xs dark:border-yellow-google"
     >
       <option value="en" className="text-xs">
