@@ -1,19 +1,18 @@
-import { signIn } from 'next-auth/react'
-import Image from 'next/image'
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
-import toast from 'react-hot-toast'
-import { GetServerSideProps, GetStaticProps } from 'next'
-import { LoginProps } from '@/types'
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { providers } from '@/types'
-import { CircularProgress } from '@chakra-ui/react'
-import ProvidersSignIn from '@/components/ProvidersSignIn'
 import DividerWithTitle from '@/components/DividerWithTitle'
 import FormSignUp from '@/components/Forms/Register/FormSignUp'
-import dynamic from 'next/dynamic'
 import Head from '@/components/Head'
+import ProvidersSignIn from '@/components/ProvidersSignIn'
+import { LoginProps, providers } from '@/types'
+import { CircularProgress } from '@chakra-ui/react'
+import { GetServerSideProps } from 'next'
+import { signIn } from 'next-auth/react'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import dynamic from 'next/dynamic'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import toast from 'react-hot-toast'
 
 const NavbarSite = dynamic(() => import('@/components/Navbars/NavbarSite'), {
   ssr: false,
@@ -39,7 +38,7 @@ function Login({ APP_NAME }: LoginProps) {
   }, [error])
 
   return (
-    <div className="bg-gray-50 dark:bg-black/60">
+    <div className="bg-gray-50 dark:bg-black/60 h-screen">
       <NavbarSite />
       <Head
         description={t('register.seo.description')}

@@ -6,9 +6,9 @@ import IconButton from '@/components/Buttons/IconButton'
 import LoadingDots from '@/components/app/loading-dots'
 import ArrowCircleRight from '@/components/icons/arrowCircleRight'
 import FormInput from '../FormInput'
-import { isValidEmail, isValidPassword } from 'common'
 import FieldErrorLabel from '../FieldErrorLabel'
 import LinkButton from '@/components/Buttons/LinkButton'
+import { isValidEmail, isValidPassword } from '@/lib/helpers'
 
 const FormSignIn = () => {
   const { t } = useTranslation('common')
