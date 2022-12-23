@@ -40,6 +40,8 @@ const FormSignIn = () => {
           handleSubmit,
           isSubmitting,
           setSubmitting,
+          validateForm,
+          isValid,
         }) => (
           <form
             onSubmit={handleSubmit}
@@ -137,6 +139,18 @@ const FormSignIn = () => {
                 basicStyle="default"
                 disabled={isSubmitting}
                 onClick={async () => {
+                  const formValidated = await validateForm(values)
+                  const formValidatedFiltered = Object.values(
+                    formValidated
+                  ).filter((formValidated) => formValidated.length)
+                  if (formValidatedFiltered.length) {
+                    addCustomizedToast({
+                      custom: 'validate',
+                      message: formValidatedFiltered[0] as any,
+                    })
+                    return
+                  }
+
                   setSubmitting(true)
                   addCustomizedToast({ custom: 'loading' })
 
