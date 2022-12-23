@@ -52,6 +52,11 @@
     "portuguese": "PT-BR",
     "english": "EN-USA"
   },
+  "toast": {
+    "loadingTitle": "Só um momento!",
+    "loadingDescription": "Aguarde apenas um instante.",
+    "error": "Ocorreu um erro inesperado!"
+  },
   "routes": {
     "home": {
       "title": "Início",
