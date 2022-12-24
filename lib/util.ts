@@ -33,3 +33,17 @@ export const bodyParser = (bodyData: Object) => {
 export function unparseBody(bodyData: string) {
   return JSON.parse(bodyData)
 }
+
+export function secondsToTime(seconds: number) {
+  //  const h = Math.floor(seconds / 3600)
+  //    .toString()
+  //  .padStart(2, '0'),
+  const m = Math.floor((seconds % 3600) / 60)
+    .toString()
+    .padStart(2, '0')
+  const s = Math.floor(seconds % 60)
+    .toString()
+    .padStart(2, '0')
+
+  return `${m}:${s}`
+}
