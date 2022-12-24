@@ -10,10 +10,13 @@ import { useTranslation } from 'react-i18next'
 import FieldErrorLabel from '../FieldErrorLabel'
 import FormInput from '../FormInput'
 import FormLabel from '../FormLabel'
-import { FormSignUpValidate } from './FormSignUpValidate'
+import {
+  FormSignUpOnValidateError,
+  FormSignUpValidate,
+} from './FormSignUpValidate'
 
 const FormSignIn = () => {
-  const { addCustomizedToast, closeToast } = useToast()
+  const { addCustomizedToast } = useToast()
 
   const { t } = useTranslation('common')
 
@@ -41,7 +44,6 @@ const FormSignIn = () => {
           isSubmitting,
           setSubmitting,
           validateForm,
-          isValid,
         }) => (
           <form
             onSubmit={handleSubmit}
@@ -83,8 +85,8 @@ const FormSignIn = () => {
                 />
               </div>
 
-              <div className="flex">
-                <div className="w-1/2 pr-2">
+              <div className="md:flex">
+                <div className="w-full md:w-1/2 md:pr-2">
                   <FormLabel title={t('commons.password')} />
                   <FormInput
                     name="password"
@@ -105,7 +107,7 @@ const FormSignIn = () => {
                   />
                 </div>
 
-                <div className="w-1/2 pl-2">
+                <div className="w-full md:w-1/2 md:pl-2">
                   <FormLabel title={t('register.confirmPassword')} />
                   <FormInput
                     name="confirmPassword"
@@ -139,32 +141,30 @@ const FormSignIn = () => {
                 basicStyle="default"
                 disabled={isSubmitting}
                 onClick={async () => {
-                  const formValidated = await validateForm(values)
-                  const formValidatedFiltered = Object.values(
-                    formValidated
-                  ).filter((formValidated) => formValidated.length)
-                  if (formValidatedFiltered.length) {
-                    addCustomizedToast({
-                      custom: 'validate',
-                      message: formValidatedFiltered[0] as any,
-                    })
+                  setSubmitting(true)
+
+                  const { isValid } = await FormSignUpOnValidateError({
+                    values,
+                    validateForm,
+                    onToastError: addCustomizedToast,
+                  })
+                  if (!isValid) {
+                    setSubmitting(false)
                     return
                   }
 
-                  setSubmitting(true)
                   addCustomizedToast({ custom: 'loading' })
 
                   await fetch(`/api/user`, {
                     body: bodyParser(values),
                     method: HttpMethod.POST,
                   }).then(async (response) => {
-                    closeToast()
                     const responseData: ICreateUserResponseBody =
                       await response.json()
 
                     if (!responseData.success)
                       addCustomizedToast({
-                        message: responseData.failured,
+                        failure: responseData.failured,
                         custom: 'error',
                       })
                   })

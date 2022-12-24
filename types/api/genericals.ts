@@ -1,4 +1,4 @@
 import { CreateUserFailures } from './user'
 export type InternalFailures = 'server'
 
-export type AllFailures = CreateUserFailures
+export type AllFailures = CreateUserFailures | InternalFailures

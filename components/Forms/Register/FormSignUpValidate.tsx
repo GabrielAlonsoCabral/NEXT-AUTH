@@ -1,38 +1,50 @@
 import { isValidEmail, isValidName, isValidPassword } from '@/lib/helpers'
 import { IUserRequestBody } from '@/types'
-import { TFunction } from 'next-i18next'
+import {
+  IFormSignUpOnValidateError,
+  IFormValidateProps,
+} from '@/types/components/forms'
 
-export interface IFormSignUpProps {
-  values: IUserRequestBody
-  t: TFunction
+export const FormSignUpOnValidateError = async ({
+  values,
+  validateForm,
+  onToastError,
+}: IFormSignUpOnValidateError) => {
+  const formValidated = await validateForm(values)
+  const formValidatedFiltered = Object.values(formValidated).filter(
+    (formValidated) => formValidated.length
+  )
+  if (formValidatedFiltered.length) {
+    onToastError({
+      custom: 'validate',
+      message: formValidatedFiltered[0]?.toString(),
+    })
+
+    return { isValid: false }
+  }
+
+  return { isValid: true }
 }
 
-export const FormSignUpValidate = ({ values, t }: IFormSignUpProps) => {
-  const errors = {
+export const FormSignUpValidate = ({
+  values,
+  t,
+}: IFormValidateProps<IUserRequestBody>) => {
+  const errors: { [error in keyof typeof values]: string } = {
     email: '',
     password: '',
     name: '',
     confirmPassword: '',
   }
-  if (!values.email) {
-    errors.email = t('forms.requireds.email')
-    return errors
-  }
 
-  if (!values.name) {
-    errors.name = t('forms.requireds.name')
-    return errors
-  }
-
-  if (!values.confirmPassword) {
-    errors.confirmPassword = t('forms.requireds.confirmPassword')
-    return errors
-  }
-
-  if (!values.password) {
-    errors.password = t('forms.requireds.password')
-    return errors
-  }
+  Object.keys(values).map((fieldKey) => {
+    const fieldValue = values[fieldKey as keyof typeof values]
+    if (!fieldValue) {
+      //@ts-ignore
+      errors[fieldKey] = t(`forms.requireds.${fieldKey}`)
+      return errors
+    }
+  })
 
   if (!isValidEmail(values.email)) {
     errors.email = t('forms.invalids.email')

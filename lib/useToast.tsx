@@ -1,4 +1,8 @@
-import { AllFailures, CustomizedToasts, IAddCustomizedToast } from '@/types'
+import {
+  CustomizedToasts,
+  IAddCustomizedToast,
+  ICustomizedToast,
+} from '@/types'
 import {
   ToastId,
   useToast as useToastChakra,
@@ -14,33 +18,34 @@ function useToast() {
   const { t, i18n } = useTranslation('common')
 
   const customizedToasts: {
-    [customizedToast in CustomizedToasts]: (
-      failure?: AllFailures
-    ) => UseToastOptions
+    [customizedToast in CustomizedToasts]: ({
+      message,
+      failure,
+    }: ICustomizedToast) => UseToastOptions
   } = {
-    error: (failure?: AllFailures) => ({
+    error: ({ failure }) => ({
       title: 'Ops!',
       description: failure
         ? translateErrorMessage(failure, i18n.language)
         : t('toast.error'),
       status: 'error',
-      duration: 9000,
+      duration: 5000,
       isClosable: true,
       position: 'top-right',
     }),
-    validate: (message?: string) => ({
+    validate: ({ message }) => ({
       title: 'Ops!',
       description: message,
       status: 'error',
-      duration: 9000,
+      duration: 5000,
       isClosable: true,
       position: 'top-right',
     }),
     loading: () => ({
       title: t('toast.loadingTitle'),
       description: t('toast.loadingDescription'),
-      status: 'error',
-      duration: 9000,
+      status: 'loading',
+      duration: 5000,
       isClosable: true,
       position: 'top-right',
     }),
@@ -54,8 +59,15 @@ function useToast() {
     if (toastIdRef.current) toast.close(toastIdRef.current)
   }
 
-  function addCustomizedToast({ message, custom }: IAddCustomizedToast) {
-    const options = customizedToasts[custom](message)
+  function addCustomizedToast({
+    message,
+    custom,
+    failure,
+  }: IAddCustomizedToast) {
+    const options = customizedToasts[custom]({
+      message: message ? message : undefined,
+      failure: failure ? failure : undefined,
+    })
     closeToast()
     toastIdRef.current = toast(options)
   }
