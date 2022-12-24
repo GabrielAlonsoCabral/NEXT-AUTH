@@ -1,4 +1,5 @@
 import LinkButton from '@/components/Buttons/LinkButton'
+import { isValidEmail } from '@/lib/helpers'
 import useToast from '@/lib/useToast'
 import { secondsToTime } from '@/lib/util'
 import { EmailIcon } from '@chakra-ui/icons'
@@ -17,10 +18,6 @@ const Center = dynamic(
   }
 )
 
-const NavbarSite = dynamic(() => import('@/components/Navbars/NavbarSite'), {
-  ssr: false,
-})
-
 interface IEmailVerificationProps {
   wait: number
 }
@@ -30,9 +27,19 @@ const EmailVerification = ({ wait }: IEmailVerificationProps) => {
   const router = useRouter()
   const { email } = router.query
   const { t } = useTranslation('common')
+
   const { addCustomizedToast } = useToast()
 
   useEffect(() => {
+    if (!isValidEmail((email as string) || '')) {
+      addCustomizedToast({
+        custom: 'validate',
+        message: t('forms.invalids.email'),
+      })
+      router.push('/')
+      return
+    }
+
     addCustomizedToast({
       custom: 'success',
       title: t('emailVerification.toast.successTitle'),
