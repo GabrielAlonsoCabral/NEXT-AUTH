@@ -85,7 +85,7 @@ const FormSignIn = () => {
                 />
               </div>
 
-              <div className="md:flex">
+              <div className="space-y-5 md:flex md:space-y-0">
                 <div className="w-full md:w-1/2 md:pr-2">
                   <FormLabel title={t('commons.password')} />
                   <FormInput
