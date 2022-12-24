@@ -162,11 +162,18 @@ const FormSignIn = () => {
                     const responseData: ICreateUserResponseBody =
                       await response.json()
 
-                    if (!responseData.success)
+                    if (!responseData.success) {
                       addCustomizedToast({
                         failure: responseData.failured,
                         custom: 'error',
                       })
+                      setSubmitting(false)
+                    }
+
+                    addCustomizedToast({
+                      custom: 'success',
+                      title: t('register.registerSuccess'),
+                    })
                   })
                   setSubmitting(false)
                 }}

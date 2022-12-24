@@ -46,7 +46,8 @@
     "description": "Create an account to manage your site.",
     "accountSignIn": "Already have an account?",
     "confirmPassword": "Password confirm",
-    "passwordLabel": "Your password must contain at least 8 characters, uppercases and lowercases."
+    "passwordLabel": "Your password must contain at least 8 characters, uppercases and lowercases.",
+    "registerSuccess": "Account created successfully!"
   },
   "languages": {
     "portuguese": "PT-BR",
@@ -63,7 +64,7 @@
       "path": "/{{lang}}/"
     },
     "plans": {
-      "title": "Planos",
+      "title": "Plans",
       "path": "/{{lang}}/plans"
     },
     "examples": {

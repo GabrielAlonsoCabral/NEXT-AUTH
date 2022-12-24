@@ -21,6 +21,7 @@ function useToast() {
     [customizedToast in CustomizedToasts]: ({
       message,
       failure,
+      title,
     }: ICustomizedToast) => UseToastOptions
   } = {
     error: ({ failure }) => ({
@@ -49,6 +50,13 @@ function useToast() {
       isClosable: true,
       position: 'top-right',
     }),
+    success: ({ title }) => ({
+      title: title,
+      status: 'success',
+      duration: 5000,
+      isClosable: true,
+      position: 'top-right',
+    }),
   }
 
   function closeAll() {
@@ -63,10 +71,12 @@ function useToast() {
     message,
     custom,
     failure,
+    title,
   }: IAddCustomizedToast) {
     const options = customizedToasts[custom]({
       message: message ? message : undefined,
       failure: failure ? failure : undefined,
+      title: title ? title : undefined,
     })
     closeToast()
     toastIdRef.current = toast(options)

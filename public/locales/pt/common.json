@@ -46,7 +46,8 @@
     "description": "Crie sua conta para gerenciar seu site.",
     "accountSignIn": "Já possui uma conta?",
     "confirmPassword": "Confirme sua senha",
-    "passwordLabel": "Sua senha deve conter pelo menos 8 caracteres, letras maiúsculas e minúsculas."
+    "passwordLabel": "Sua senha deve conter pelo menos 8 caracteres, letras maiúsculas e minúsculas.",
+    "registerSuccess": "Conta criada com sucesso!"
   },
   "languages": {
     "portuguese": "PT-BR",

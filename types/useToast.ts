@@ -1,6 +1,6 @@
 import { AllFailures } from './api'
 
-export type CustomizedToasts = 'error' | 'loading' | 'validate'
+export type CustomizedToasts = 'error' | 'loading' | 'validate' | 'success'
 
 export interface IAddCustomizedToast extends ICustomizedToast {
   custom: CustomizedToasts
@@ -9,4 +9,5 @@ export interface IAddCustomizedToast extends ICustomizedToast {
 export interface ICustomizedToast {
   failure?: AllFailures
   message?: string
+  title?: string
 }
