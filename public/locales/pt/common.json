@@ -5,30 +5,45 @@
     "GithubSignIn": "Acessar com Github",
     "signIn": "Acessar",
     "signUp": "Cadastre-se",
-    "email": "Email",
+    "email": "E-mail",
     "password": "Senha",
     "continueWith": "Ou continue com",
     "name": "Nome"
   },
   "forms": {
     "requireds": {
-      "email": "Preencha seu email.",
+      "email": "Preencha seu e-mail.",
       "password": "Preencha sua senha.",
       "name": "Preencha seu nome.",
       "confirmPassword": "Confirme sua senha."
     },
     "placeholders": {
-      "email": "Digite seu email",
+      "email": "Digite seu e-mail",
       "password": "Digite sua senha",
       "name": "Digite seu nome",
       "confirmPassword": "Confirme sua senha"
     },
     "invalids": {
-      "email": "Email inválido.",
+      "email": "E-mail inválido.",
       "password": "Senha inválida.",
       "name": "Nome inválido.",
       "confirmPassword": "As senhas não coincidem."
     }
+  },
+  "emailVerification": {
+    "title": "Confirme seu e-mail",
+    "description": {
+      "0": "Cheque a caixa de mensagem ou spam do e-mail",
+      "1": "para confirmar"
+    },
+    "toast": {
+      "successTitle": "E-mail enviado com sucesso!",
+      "successMessage": "Check {{email}} message or spam box."
+    },
+    "loseEmailAccess": "Não possui acesso a este e-mail?",
+    "registerEmail": "Cadastrar novo e-mail",
+    "sendEmailAgain": "Reenviar e-mail",
+    "sendEmailLoading": "Envie novamente em {{time}}"
   },
   "login": {
     "seo": {

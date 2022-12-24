@@ -5,30 +5,45 @@
     "GithubSignIn": "Sign in with Github",
     "signIn": "Sign in",
     "signUp": "Sign up",
-    "email": "Email",
+    "email": "E-mail",
     "password": "Password",
     "continueWith": "Or continue with",
     "name": "Name"
   },
   "forms": {
     "requireds": {
-      "email": "Fill your email.",
+      "email": "Fill your e-mail.",
       "password": "fill your password.",
       "name": "Fill your name..",
       "confirmPassword": "Fill your password again."
     },
     "invalids": {
-      "email": "Invalid email.",
+      "email": "Invalid e-mail.",
       "password": "Invalid password.",
       "name": "Invalid name.",
       "confirmPassword": "Your passwords are different."
     },
     "placeholders": {
-      "email": "Type your email",
+      "email": "Type your e-mail",
       "password": "Type your password",
       "name": "Type your name",
       "confirmPassword": "Type your password again"
     }
+  },
+  "emailVerification": {
+    "title": "Confirm your e-mail",
+    "description": {
+      "0": "Verify your message box or spam of your e-mail",
+      "1": "to confirm"
+    },
+    "toast": {
+      "successTitle": "E-mail sent successfully!",
+      "successMessage": "Check {{email}} message or spam box."
+    },
+    "loseEmailAccess": "Don't e-mail have access?",
+    "registerEmail": "Register new e-mail",
+    "sendEmailAgain": "Resend e-mail",
+    "sendEmailLoading": "Resend in {{time}}"
   },
   "login": {
     "seo": {

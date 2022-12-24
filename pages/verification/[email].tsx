@@ -1,4 +1,5 @@
 import LinkButton from '@/components/Buttons/LinkButton'
+import useToast from '@/lib/useToast'
 import { secondsToTime } from '@/lib/util'
 import { EmailIcon } from '@chakra-ui/icons'
 import { Box, Button, Heading, Spacer, Text } from '@chakra-ui/react'
@@ -7,6 +8,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const Center = dynamic(
   () => import('@chakra-ui/react').then((module) => module.Center),
@@ -27,6 +29,16 @@ const EmailVerification = ({ wait }: IEmailVerificationProps) => {
   const [counter, setCounter] = useState(wait)
   const router = useRouter()
   const { email } = router.query
+  const { t } = useTranslation('common')
+  const { addCustomizedToast } = useToast()
+
+  useEffect(() => {
+    addCustomizedToast({
+      custom: 'success',
+      title: t('emailVerification.toast.successTitle'),
+      message: t('emailVerification.toast.successMessage', { email }),
+    })
+  }, [])
 
   useEffect(() => {
     const timer =
@@ -45,22 +57,23 @@ const EmailVerification = ({ wait }: IEmailVerificationProps) => {
                 className="text-black dark:text-gray-200 text-lg "
                 mb={4}
               >
-                <EmailIcon fontSize={22} /> Confirme seu e-mail{' '}
+                <EmailIcon fontSize={22} /> {t('emailVerification.title')}
+                {}
               </Heading>
               <Text className="text-gray-600 dark:text-gray-300">
-                Cheque a caixa de mensagem ou spam do e-mail
+                {t('emailVerification.description.0')}
                 <Text className="font-bold text-black dark:text-white">
                   {email}
                 </Text>{' '}
-                para confirmar.
+                {t('emailVerification.description.1')}.
               </Text>
               <Spacer height={'5'} />
               <Box className="w-3/4">
                 <Text className="text-sm text-gray-600 dark:text-gray-300">
-                  Não possui acesso a este e-mail?{' '}
+                  {t('emailVerification.loseEmailAccess')}{' '}
                   <LinkButton
                     href="/register"
-                    title={'Cadastrar novo e-mail'}
+                    title={t('emailVerification.registerEmail')}
                   />
                 </Text>
               </Box>
@@ -68,14 +81,14 @@ const EmailVerification = ({ wait }: IEmailVerificationProps) => {
               <Button
                 width={'full'}
                 isLoading={counter !== 0}
-                loadingText={`Envie novamente em ${secondsToTime(
-                  Number(counter)
-                )}`}
+                loadingText={t('emailVerification.sendEmailLoading', {
+                  time: secondsToTime(counter),
+                })}
                 colorScheme="green"
                 variant="solid"
                 spinnerPlacement="start"
               >
-                Enviar email novamente
+                {t('emailVerification.sendEmailAgain')}
               </Button>
             </Box>
           </Box>
