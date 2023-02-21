@@ -1,4 +1,3 @@
-import React from 'react'
 import { useTheme } from 'next-themes'
 import MoonIcon from './icons/moon'
 import SunIcon from './icons/sun'
@@ -10,6 +9,7 @@ const ThemeChanger = () => {
     const handleThemes = {
       dark: () => setTheme('light'),
       light: () => setTheme('dark'),
+      system: () => setTheme('light'),
     }
 
     type Themes = keyof typeof handleThemes
